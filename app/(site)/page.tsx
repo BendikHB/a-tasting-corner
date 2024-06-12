@@ -15,7 +15,7 @@ export default async function Home() {
           href={"/about"}
           className="col-start-4 col-end-7 row-span-1 w-full bg-dark flex justify-center items-center"
         >
-          <div className="font-IbarraRealNova text-light text-7xl text-center w-full">
+          <div className="font-Raleway text-light text-7xl text-center w-full">
             About
           </div>
         </Link>
