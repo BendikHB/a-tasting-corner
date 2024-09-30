@@ -25,6 +25,11 @@ const page = {
           title: "Alt",
           type: "string",
         },
+        {
+          name: "dark",
+          title: "Image is dark",
+          type: "boolean",
+        },
       ],
     },
     {
@@ -37,6 +42,11 @@ const page = {
           name: "alt",
           title: "Alt",
           type: "string",
+        },
+        {
+          name: "dark",
+          title: "Image is dark",
+          type: "boolean",
         },
       ],
     },

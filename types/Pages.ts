@@ -9,7 +9,9 @@ export type Page = {
   intro: PortableTextBlock[];
   image: string;
   alt: string;
+  dark: boolean;
   altTwo: string;
+  darkTwo: boolean;
   imageTwo: string;
   url: string;
   urlTwo: string;
