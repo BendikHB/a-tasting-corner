@@ -1,5 +1,6 @@
 import { Module } from "@/components/Module";
 import { getPage } from "@/sanity/sanity-utils";
+import { log } from "console";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +11,8 @@ export default async function Home() {
     image,
     alt,
     altTwo,
+    dark,
+    darkTwo,
     imageTwo,
     url,
     linkText,
@@ -19,31 +22,36 @@ export default async function Home() {
     intro,
     modules,
   } = page;
+  const styles = {
+    dark1: dark ? "text-white" : "text-black",
+    dark2: darkTwo ? "text-white" : "text-black",
+  }
+  
+  
 
   return (
     <div className="mx-auto">
-      <section className="bg-black flex gap-5 p-5 h-dvh">
+      <section className="flex gap-5 p-5">
         {image && (
-          <Link href={url} className="relative h-full w-1/2 cursor-pointer">
-            <Image src={image} alt={alt} layout="fill" objectFit="cover" />
+          <Link href={url} className="relative max-w-1/2 cursor-pointer">
+            <Image src={image} alt={alt} width={1080} height={1080} />
             {url && (
-              <button className="text-3xl absolute bottom-7 left-8">
+              <button className={`${styles.dark1} text-3xl  absolute bottom-7 left-8`}>
                 {linkText}
               </button>
             )}
           </Link>
         )}
         {imageTwo && (
-          <Link href={urlTwo} className="relative h-full w-1/2 cursor-pointer">
+          <Link href={urlTwo} className="relative max-w-1/2 cursor-pointer">
             <Image
               src={imageTwo}
               alt={altTwo}
-              layout="fill"
-              objectFit="cover"
-              objectPosition="50% 100%"
+              width={1080}
+              height={1080}
             />
             {urlTwo && (
-              <button className="text-3xl absolute bottom-7 left-8 text-white">
+              <button className={`${styles.dark2} text-3xl absolute bottom-7 left-8`}>
                 {linkTextTwo}
               </button>
             )}
