@@ -9,9 +9,19 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "CormorantUpright";
+    src: url(../public/fonts/CormorantUpright-Light.ttf) format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
 @layer base {
 
-    h1,
+    h1 {
+        font-family: "CormorantUpright", serif;
+    }
+
     h2,
     h3,
     h4,
