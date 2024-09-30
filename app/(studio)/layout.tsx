@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "Studio - Blend HB",
-  description: "Blend your content",
+  title: "Studio - a tasting corner",
+  description: "content for a tasting corner",
 };
 
 export default function RootLayout({
