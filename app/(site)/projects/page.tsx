@@ -1,5 +1,6 @@
 import { getPage, getProjects } from "@/sanity/sanity-utils";
 import { PortableText } from "next-sanity";
+import React from "react";
 
 export default async function Page() {
   const page = await getPage("projects");
