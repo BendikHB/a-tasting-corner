@@ -9,13 +9,15 @@ const config: Config = {
   theme: {
     fontFamily: {
       Raleway: ["Raleway", "sans-serif"],
+      CormorantUpright: ["CormorantUpright", "serif"],
     },
     colors: {
       transparent: "transparent",
       "white": "#ffffff",
       "black": "#2A1D18",
-      "light": "#F2F1F0",
-      "sand": "#EAC8A2",
+      "primary": "#896F55",
+      "light": "#F4E6D7",
+      "accent": "#8ACBDF",
       
     },
     extend: {

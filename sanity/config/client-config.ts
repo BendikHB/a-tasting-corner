@@ -1,9 +1,9 @@
 const config = {
-    projectId: "if36oaxd",
+  projectId: "if36oaxd",
 
-    dataset: "production",
+  dataset: "production",
 
-    apiVersion: "2024-06-12",
+  apiVersion: "2024-06-12",
 };
 
 export default config;
