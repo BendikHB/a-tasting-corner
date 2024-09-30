@@ -18,17 +18,23 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header className="flex items-center justify-between p-6 text-xl fixed z-50 bg-white w-screen">
-          <Link href={"/"}>a tasting corner</Link>
+        <div className="flex flex-row-reverse">
+        <header className="p-6 text-xl sticky z-50 bg-white min-w-fit top-0">
+          <div className="flex flex-col items-end">
+          <Link href={"/"} className="text-5xl font-CormorantUpright">a tasting corner</Link>
+          <div className="text-primary">Elevate your palate</div>
+          </div>
           <div className="flex items-center gap-8">
             {pages.map((page) => (
               <Link key={page._id} href={`/${page.slug}`}>
-                {page.title}
+                {page.heading}
               </Link>
             ))}
           </div>
         </header>
-        <main>{children}</main>
+        <main className="w-full">{children}</main>
+        </div>
+        <footer></footer>
       </body>
     </html>
   );
