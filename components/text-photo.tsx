@@ -1,3 +1,4 @@
+import { ArrowRight } from "@/public/icons/arrow-right";
 import { PortableText, PortableTextBlock } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,7 +29,7 @@ const TextPhoto = ({ data }: ITextPhoto) => {
 
   return (
     <section className="relative flex justify-center max-w-screen-xl mx-auto items-center py-24">
-      <div className="bg-sand absolute py-8 px-12 text-3xl left-1/2 top-36">
+      <div className="bg-light absolute py-8 px-12 text-3xl left-1/2 top-36">
         {title && (
           <>
             {type === 1 && <h1>{title}</h1>}
@@ -42,7 +43,7 @@ const TextPhoto = ({ data }: ITextPhoto) => {
         <PortableText value={text} />
         {cta && (
           <Link href={cta.url}>
-            <button className="pt-6">{cta.text}</button>
+            <button className="pt-6 flex items-end">{cta.text} <div className="pb-[7px] pl-3"><ArrowRight width={38} height={6} color={"#000"}/></div></button>
           </Link>
         )}
       </div>
