@@ -19,7 +19,7 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <div className="flex flex-row-reverse">
-        <header className="p-6 text-xl sticky z-50 bg-white min-w-fit top-0">
+        <header className="p-6 text-xl sticky z-50 bg-white min-w-fit top-0 h-screen">
           <div className="flex flex-col items-end">
           <Link href={"/"} className="text-5xl font-CormorantUpright">a tasting corner</Link>
           <div className="text-primary">Elevate your palate</div>
