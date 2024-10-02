@@ -19,7 +19,7 @@ export default async function Drink({ params }: Props) {
         <div className="p-5 pb-0 h-[600px]">
           <div className="h-full w-full relative">
             {drink?.image && (
-              <Image src={drink.image} alt={drink.alt} fill objectFit="cover" />
+              <Image src={drink.image} alt={drink.alt} fill style={{objectFit:"cover"}} priority />
             )}
             <div className="absolute left-[10%] top-1/3">
               <p className="text-5xl w-3/5 text-white">{drink.heading}</p>
@@ -27,8 +27,8 @@ export default async function Drink({ params }: Props) {
             </div>
           </div>
         </div>
-        <div className="bg-black pl[10%]">
-          <h1 className="text-5xl text-white py-10 ml-[10%]">{drink.name}</h1>
+        <div className="bg-light pl[10%]">
+          <h1 className="text-5xl py-10 ml-[10%]">{drink.name}</h1>
         </div>
       </section>
       <section className="flex my-16 max-w-7xl mx-auto">
