@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ArrowRight } from "@/public/icons/arrow-right";
 import { PortableText } from "next-sanity";
 import SearchFilterDrinks from "@/components/search-filter-drinks";
+import FilteredDrinks from "@/components/filtered-drinks";
 
 export default async function Page() {
   const page = await getPage("drinks");
@@ -46,17 +47,8 @@ export default async function Page() {
       </section>
       <section className="max-w-4xl mx-auto pt-20">
         <SearchFilterDrinks />
-        {drinks && (
-          <div className="flex gap-4">
-            {drinks.map((d) => {
-              return (
-                <div key={d.name}>
-                  <DrinkCard data={d} />
-                </div>
-              );
-            })}
-          </div>
-        )}
+
+        {drinks && <FilteredDrinks drinks={drinks} />}
       </section>
     </div>
   );

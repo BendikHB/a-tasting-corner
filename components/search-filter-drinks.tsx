@@ -25,22 +25,32 @@ const SearchFilterDrinks = () => {
     if (!baseSpirit.includes(obj.tag) && obj.type === "baseSpirit") {
       if (baseSpiritString) {
         baseSpiritString = baseSpiritString + "+" + obj.tag;
+        setBaseSpirit(baseSpiritString);
       } else {
-        baseSpiritString = "basespirit=" + obj.tag;
+        baseSpiritString = obj.tag;
+        setBaseSpirit(baseSpiritString);
       }
     }
     if (!tastes.includes(obj.tag) && obj.type === "tastes") {
       if (tastesString) {
         tastesString = tastesString + "+" + obj.tag;
+        setTastes(tastesString);
       } else {
-        tastesString = "tastes=" + obj.tag;
+        tastesString = obj.tag;
+        setTastes(tastesString);
       }
     }
 
-    let temp = baseSpiritString + "&" + tastesString;
+    if (baseSpiritString) baseSpiritString = "basespirit=" + baseSpiritString;
+    if (tastesString) tastesString = "tastes=" + tastesString;
 
-    if (temp.length < 3) filter = null;
-    if (temp?.charAt(temp.length - 1) === "&") filter = temp.replace(/.$/, "");
+    filter = baseSpiritString + "&" + tastesString;
+
+    if (filter.length < 3) filter = null;
+    if (filter?.charAt(filter.length - 1) === "&")
+      filter = filter.replace(/.$/, "");
+
+    console.log(filter, "filter");
 
     if (filter?.indexOf("&") == 0) filter = filter.substring(1);
 
@@ -58,7 +68,6 @@ const SearchFilterDrinks = () => {
         type="button"
         className="border rounded-sm py-2 px-5 text-xl min-w-60 min-h-20 duration-300 hover:bg-light"
         onClick={() => {
-          setBaseSpirit("gin");
           setFilter({ type: "baseSpirit", tag: "gin" });
         }}
       >
@@ -68,7 +77,15 @@ const SearchFilterDrinks = () => {
         type="button"
         className="border rounded-sm py-2 px-5 text-xl min-w-60 min-h-20 duration-300 hover:bg-light"
         onClick={() => {
-          setTastes("sweet");
+          setFilter({ type: "baseSpirit", tag: "vodka" });
+        }}
+      >
+        Vodka
+      </button>
+      <button
+        type="button"
+        className="border rounded-sm py-2 px-5 text-xl min-w-60 min-h-20 duration-300 hover:bg-light"
+        onClick={() => {
           setFilter({ type: "tastes", tag: "sweet" });
         }}
       >
