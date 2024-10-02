@@ -13,6 +13,7 @@ export async function getPosts(): Promise<Post[]> {
             name,
             "slug": slug.current,
             "image": image.asset->url,
+            "alt": image.alt,
             url,
             content
         }`,
@@ -27,6 +28,7 @@ export async function getPost(slug: string): Promise<Post> {
                 name,
                 "slug": slug.current,
                 "image": image.asset->url,
+                "alt": image.alt,
                 url,
                 content
             }`,
@@ -43,6 +45,7 @@ export async function getDrinks(): Promise<Drink[]> {
       name,
       "slug": slug.current,
       "image": image.asset->url,
+      "alt": image.alt,
       taste,
       strength,
       amount_ingredients,
@@ -63,6 +66,7 @@ export async function getDrink(slug: string): Promise<Drink> {
       ingredientsCl,
       ingredientsOz,
       "image": image.asset->url,
+      "alt": image.alt,
       taste,
       spirit,
       season,
@@ -73,6 +77,7 @@ export async function getDrink(slug: string): Promise<Drink> {
           name, 
           "slug": slug.current, 
           "image": image.asset->url, 
+          "alt": image.alt,
           strength, 
           taste, 
           amount_ingredients, 
@@ -90,6 +95,7 @@ export async function getWines(): Promise<Wines[]> {
             name,
             "slug": slug.current,
             "image": image.asset->url,
+            "alt": image.alt,
             url,
             content
         }`,
@@ -104,6 +110,7 @@ export async function getWine(slug: string): Promise<Wines> {
                 name,
                 "slug": slug.current,
                 "image": image.asset->url,
+                "alt": image.alt,
                 url,
                 content
             }`,
