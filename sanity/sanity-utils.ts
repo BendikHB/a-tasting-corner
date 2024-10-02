@@ -48,6 +48,7 @@ export async function getDrinks(): Promise<Drink[]> {
       "alt": image.alt,
       taste,
       strength,
+      spirit,
       amount_ingredients,
     }`,
   );
