@@ -43,7 +43,12 @@ const TextPhoto = ({ data }: ITextPhoto) => {
         <PortableText value={text} />
         {cta && (
           <Link href={cta.url}>
-            <button className="pt-6 flex items-end">{cta.text} <div className="pb-[7px] pl-3"><ArrowRight width={38} height={6} color={"#000"}/></div></button>
+            <button className="pt-6 flex items-end">
+              {cta.text}{" "}
+              <div className="pb-[7px] pl-3">
+                <ArrowRight width={38} height={6} color={"#000"} />
+              </div>
+            </button>
           </Link>
         )}
       </div>

@@ -25,13 +25,11 @@ export default async function Home() {
   const textStyles = {
     dark1: dark ? "text-white" : "text-black",
     dark2: darkTwo ? "text-white" : "text-black",
-  }
+  };
   const iconColor = {
     color1: dark ? "#FFF" : "#000",
     color2: darkTwo ? "#FFF" : "#000",
-  }
-  
-  
+  };
 
   return (
     <div className="mx-auto">
@@ -40,25 +38,28 @@ export default async function Home() {
           <Link href={url} className="relative max-w-1/2 cursor-pointer">
             <Image src={image} alt={alt} width={1080} height={1080} />
             {url && (
-              <button className={`${textStyles.dark1} text-3xl  absolute bottom-7 left-8 flex items-end`}>
+              <button
+                className={`${textStyles.dark1} text-3xl  absolute bottom-7 left-8 flex items-end`}
+              >
                 {linkText}
-                <div className="pb-2 pl-3"><ArrowRight width={48} height={10} color={iconColor.color1}/></div>
+                <div className="pb-2 pl-3">
+                  <ArrowRight width={48} height={10} color={iconColor.color1} />
+                </div>
               </button>
             )}
           </Link>
         )}
         {imageTwo && (
           <Link href={urlTwo} className="relative max-w-1/2 cursor-pointer">
-            <Image
-              src={imageTwo}
-              alt={altTwo}
-              width={1080}
-              height={1080}
-            />
+            <Image src={imageTwo} alt={altTwo} width={1080} height={1080} />
             {urlTwo && (
-              <button className={`${textStyles.dark2} text-3xl absolute bottom-7 left-8 flex items-end`}>
+              <button
+                className={`${textStyles.dark2} text-3xl absolute bottom-7 left-8 flex items-end`}
+              >
                 {linkTextTwo}
-                <div className="pb-2 pl-3"><ArrowRight width={48} height={10} color={iconColor.color2}/></div>
+                <div className="pb-2 pl-3">
+                  <ArrowRight width={48} height={10} color={iconColor.color2} />
+                </div>
               </button>
             )}
           </Link>

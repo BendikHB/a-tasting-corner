@@ -13,12 +13,11 @@ const config: Config = {
     },
     colors: {
       transparent: "transparent",
-      "white": "#ffffff",
-      "black": "#2A1D18",
-      "primary": "#896F55",
-      "light": "#F4E6D7",
-      "accent": "#8ACBDF",
-      
+      white: "#ffffff",
+      black: "#2A1D18",
+      primary: "#896F55",
+      light: "#F4E6D7",
+      accent: "#8ACBDF",
     },
     extend: {
       backgroundImage: {
