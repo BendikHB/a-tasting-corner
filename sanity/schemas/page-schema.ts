@@ -15,6 +15,18 @@ const page = {
       options: { source: "name" },
     },
     {
+      name: "type",
+      title: "Page type",
+      type: "string",
+      options: {
+        list: [
+          { title: "Frontpage", value: "frontpage" },
+          { title: "Main", value: "main" },
+          { title: "Sub", value: "sub" },
+        ],
+      },
+    },
+    {
       name: "image",
       title: "Image",
       type: "image",
@@ -49,6 +61,9 @@ const page = {
           type: "boolean",
         },
       ],
+      //@ts-ignore
+      hidden: ({ document }) =>
+        document?.type !== "main" && document?.type !== "frontpage",
     },
     {
       name: "url",
@@ -64,11 +79,15 @@ const page = {
       name: "urlTwo",
       title: "Url # 2",
       type: "string",
+      //@ts-ignore
+      hidden: ({ document }) => document?.type === "sub",
     },
     {
       name: "linkTextTwo",
       title: "Link text #2",
       type: "string",
+      //@ts-ignore
+      hidden: ({ document }) => document?.type === "sub",
     },
     {
       name: "heading",

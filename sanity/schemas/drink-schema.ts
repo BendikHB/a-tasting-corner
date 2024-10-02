@@ -81,11 +81,11 @@ const drink = {
       type: "string",
       options: {
         list: [
-          { title: "Sweet", value: "sweet" },
-          { title: "Bitter", value: "bitter" },
-          { title: "Sour", value: "sour" },
-          { title: "Fruity", value: "fruity" },
-          { title: "Savory", value: "savory" },
+          { title: "Sweet", value: "Sweet" },
+          { title: "Bitter", value: "Bitter" },
+          { title: "Sour", value: "Sour" },
+          { title: "Fruity", value: "Fruity" },
+          { title: "Savory", value: "Savory" },
         ],
       },
     },
@@ -95,10 +95,10 @@ const drink = {
       type: "string",
       options: {
         list: [
-          { title: "Vodka", value: "vodka" },
-          { title: "Tequila", value: "tequila" },
-          { title: "Gin", value: "gin" },
-          { title: "Rum", value: "rum" },
+          { title: "Vodka", value: "Vodka" },
+          { title: "Tequila", value: "Tequila" },
+          { title: "Gin", value: "Gin" },
+          { title: "Rum", value: "Rum" },
         ],
       },
     },
@@ -108,10 +108,10 @@ const drink = {
       type: "string",
       options: {
         list: [
-          { title: "Spring", value: "spring" },
-          { title: "Summer", value: "summer" },
-          { title: "Fall", value: "fall" },
-          { title: "Winter", value: "winter" },
+          { title: "Spring", value: "Spring" },
+          { title: "Summer", value: "Summer" },
+          { title: "Fall", value: "Fall" },
+          { title: "Winter", value: "Winter" },
         ],
       },
     },
