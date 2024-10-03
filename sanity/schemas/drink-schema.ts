@@ -99,6 +99,7 @@ const drink = {
           { title: "Tequila", value: "Tequila" },
           { title: "Gin", value: "Gin" },
           { title: "Rum", value: "Rum" },
+          { title: "Whiskey", value: "Whiskey" },
         ],
       },
     },
