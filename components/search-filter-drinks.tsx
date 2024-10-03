@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowRight } from "@/public/icons/arrow-right";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
@@ -166,158 +167,236 @@ const SearchFilterDrinks = () => {
     }
   }
 
+  const [dropBase, setDropBase] = useState(false);
+  const [dropTastes, setDropTastes] = useState(false);
+  const [dropStrength, setDropStrength] = useState(false);
+  const [dropAmount, setDropAmount] = useState(false);
+
+  function dropDown(id: string, active: boolean) {
+    const element = document.getElementById(id);
+    if (element && active) {
+      element.style.display = "block";
+    }
+    if (element && !active) {
+      element.style.display = "none";
+    }
+  }
+
   const baseSpiritOptions = ["gin", "vodka", "rum", "tequila", "whiskey"];
   const tasteOptions = ["sweet", "bitter", "sour", "fruity", "savory"];
   const strengthOptions = ["high", "medium", "low", "no"];
   const amountOptions = ["2", "3", "4", "5", "6", "0"];
 
   return (
-    <div className="flex gap-3">
-      <div>
-        {baseSpiritOptions.map((c) => {
-          return (
-            <div className="flex items-center mb-4" key={c + " base spirit"}>
-              <input
-                id={c + "-checkbox"}
-                type="checkbox"
-                value=""
-                onClick={() => {
-                  setFilter({
-                    type: "baseSpirit",
-                    tag: c,
-                    active: checked(c + "-checkbox"),
-                  });
-                }}
-                className="w-4 h-4 accent-primary rounded"
-              />
-              <label
-                htmlFor={c + "-checkbox"}
-                className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
-              >
-                {c}
-              </label>
-            </div>
-          );
-        })}
+    <div className="flex gap-3 py-2">
+      <div className="relative">
+        <div>
+          <button
+            className="border rounded p-2 duration-300 hover:bg-light min-w-48"
+            onClick={() => {
+              dropDown("base-spirit", !dropBase);
+              setDropBase(!dropBase);
+            }}
+          >
+            Base spirit
+          </button>
+        </div>
+        <div
+          id="base-spirit"
+          className="hidden bg-white absolute z-10 p-4 min-w-48"
+        >
+          {baseSpiritOptions.map((c) => {
+            return (
+              <div className="flex items-center mb-4" key={c + " base spirit"}>
+                <input
+                  id={c + "-checkbox"}
+                  type="checkbox"
+                  value=""
+                  onClick={() => {
+                    setFilter({
+                      type: "baseSpirit",
+                      tag: c,
+                      active: checked(c + "-checkbox"),
+                    });
+                  }}
+                  className="w-4 h-4 accent-primary rounded"
+                />
+                <label
+                  htmlFor={c + "-checkbox"}
+                  className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
+                >
+                  {c}
+                </label>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div>
-        {tasteOptions.map((c) => {
-          return (
-            <div className="flex items-center mb-4" key={c + " tastes"}>
-              <input
-                id={c + "-checkbox"}
-                type="checkbox"
-                value=""
-                onClick={() => {
-                  setFilter({
-                    type: "tastes",
-                    tag: c,
-                    active: checked(c + "-checkbox"),
-                  });
-                }}
-                className="w-4 h-4 accent-primary rounded"
-              />
-              <label
-                htmlFor={c + "-checkbox"}
-                className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
-              >
-                {c}
-              </label>
-            </div>
-          );
-        })}
+      <div className="relative">
+        <div>
+          <button
+            className="border rounded p-2 duration-300 hover:bg-light min-w-48"
+            onClick={() => {
+              dropDown("tastes", !dropTastes);
+              setDropTastes(!dropTastes);
+            }}
+          >
+            Tastes
+          </button>
+        </div>
+        <div id="tastes" className="hidden bg-white absolute z-10 p-4 min-w-48">
+          {tasteOptions.map((c) => {
+            return (
+              <div className="flex items-center mb-4" key={c + " tastes"}>
+                <input
+                  id={c + "-checkbox"}
+                  type="checkbox"
+                  value=""
+                  onClick={() => {
+                    setFilter({
+                      type: "tastes",
+                      tag: c,
+                      active: checked(c + "-checkbox"),
+                    });
+                  }}
+                  className="w-4 h-4 accent-primary rounded"
+                />
+                <label
+                  htmlFor={c + "-checkbox"}
+                  className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
+                >
+                  {c}
+                </label>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div>
-        {strengthOptions.map((c) => {
-          const prettyName = c === "no" ? "Non-alcoholic" : c;
-          return (
-            <div className="flex items-center mb-4" key={c + " strength"}>
-              <input
-                id={c + "-checkbox"}
-                type="checkbox"
-                value=""
-                onClick={() => {
-                  setFilter({
-                    type: "strength",
-                    tag: c,
-                    active: checked(c + "-checkbox"),
-                  });
-                }}
-                className="w-4 h-4 accent-primary rounded"
-              />
-              <label
-                htmlFor={c + "-checkbox"}
-                className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
-              >
-                {prettyName}
-              </label>
-            </div>
-          );
-        })}
+      <div className="relative">
+        <div>
+          <button
+            className="border rounded p-2 duration-300 hover:bg-light min-w-48"
+            onClick={() => {
+              dropDown("strength", !dropStrength);
+              setDropStrength(!dropStrength);
+            }}
+          >
+            Alcohol strength
+          </button>
+        </div>
+        <div
+          id="strength"
+          className="hidden bg-white absolute z-10 p-4 min-w-48"
+        >
+          {strengthOptions.map((c) => {
+            const prettyName = c === "no" ? "Non-alcoholic" : c;
+            return (
+              <div className="flex items-center mb-4" key={c + " strength"}>
+                <input
+                  id={c + "-checkbox"}
+                  type="checkbox"
+                  value=""
+                  onClick={() => {
+                    setFilter({
+                      type: "strength",
+                      tag: c,
+                      active: checked(c + "-checkbox"),
+                    });
+                  }}
+                  className="w-4 h-4 accent-primary rounded"
+                />
+                <label
+                  htmlFor={c + "-checkbox"}
+                  className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
+                >
+                  {prettyName}
+                </label>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div>
-        {amountOptions.map((c) => {
-          let prettyName;
-          switch (c) {
-            case "2":
-              prettyName = "two";
-              break;
-            case "3":
-              prettyName = "three";
-              break;
-            case "4":
-              prettyName = "four";
-              break;
-            case "5":
-              prettyName = "five";
-              break;
-            case "6":
-              prettyName = "six";
-              break;
-            case "0":
-              prettyName = "Over six";
-              break;
-            default:
-              prettyName = "default";
-              break;
-          }
+      <div className="relative">
+        <div>
+          <button
+            className="border rounded p-2 duration-300 hover:bg-light min-w-48"
+            onClick={() => {
+              dropDown("amount", !dropAmount);
+              setDropAmount(!dropAmount);
+            }}
+          >
+            Amount of ingredients
+          </button>
+        </div>
+        <div id="amount" className="hidden bg-white absolute z-10 p-4 min-w-48">
+          {amountOptions.map((c) => {
+            let prettyName;
+            switch (c) {
+              case "2":
+                prettyName = "two";
+                break;
+              case "3":
+                prettyName = "three";
+                break;
+              case "4":
+                prettyName = "four";
+                break;
+              case "5":
+                prettyName = "five";
+                break;
+              case "6":
+                prettyName = "six";
+                break;
+              case "0":
+                prettyName = "Over six";
+                break;
+              default:
+                prettyName = "default";
+                break;
+            }
 
-          return (
-            <div className="flex items-center mb-4" key={c + " amount"}>
-              <input
-                id={c + "-checkbox"}
-                type="checkbox"
-                value=""
-                onClick={() => {
-                  setFilter({
-                    type: "amount",
-                    tag: c,
-                    active: checked(c + "-checkbox"),
-                  });
-                }}
-                className="w-4 h-4 accent-primary rounded"
-              />
-              <label
-                htmlFor={c + "-checkbox"}
-                className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
-              >
-                {prettyName}
-              </label>
-            </div>
-          );
-        })}
+            return (
+              <div className="flex items-center mb-4" key={c + " amount"}>
+                <input
+                  id={c + "-checkbox"}
+                  type="checkbox"
+                  value=""
+                  onClick={() => {
+                    setFilter({
+                      type: "amount",
+                      tag: c,
+                      active: checked(c + "-checkbox"),
+                    });
+                  }}
+                  className="w-4 h-4 accent-primary rounded"
+                />
+                <label
+                  htmlFor={c + "-checkbox"}
+                  className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
+                >
+                  {prettyName}
+                </label>
+              </div>
+            );
+          })}
+        </div>
       </div>
       <div>
-        <div className="">
-          <input id="search" placeholder="Search" type="text" />
+        <div className="flex gap-2">
+          <input
+            className="rounded border border-black p-2"
+            id="search"
+            placeholder="Search..."
+            type="text"
+          />
           <button
             type="button"
-            className="border rounded-sm py-2 px-5 text-xl min-w-60 min-h-20 duration-300 hover:bg-light"
+            className="border rounded p-2 duration-300 hover:bg-light"
             onClick={() => {
               search();
             }}
           >
-            Click
+            <ArrowRight width={28} height={8} color="#000" />
           </button>
         </div>
       </div>
