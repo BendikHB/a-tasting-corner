@@ -11,34 +11,65 @@ interface IDrinks {
 const FilteredDrinks = ({ drinks }: IDrinks) => {
   const params = useSearchParams();
 
+  const search = params.get("search");
+
   const baseSpirit = params.get("basespirit")?.split(" ")
     ? params.get("basespirit").split(" ")
     : [];
   const tastes = params.get("tastes") ? params.get("tastes").split(" ") : [];
+  const amount = params.get("amount") ? params.get("amount").split(" ") : [];
+  const strength = params.get("strength")
+    ? params.get("strength").split(" ")
+    : [];
 
-  const filter = baseSpirit.concat(tastes);
-
-  const filtered = drinks.map((c) => {
-    const contains = [c.amount_ingredients, c.spirit, c.strength, c.taste];
-    console.log(contains);
-    console.log(filter, "filter");
-
-    const intersection = filter.filter((x) =>
-      contains.includes(x.toLowerCase()),
+  function arrayEquals(a: string[], b: string[]) {
+    return (
+      Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, idx) => val === b[idx])
     );
-    console.log(intersection, "intersection");
-    return c;
+  }
+
+  const filtered: Drink[] = [];
+  drinks.forEach((c) => {
+    const contains = [
+      c.spirit.toLowerCase(),
+      c.taste.toLowerCase(),
+      c.amount_ingredients.toLowerCase(),
+      c.strength.toLowerCase(),
+    ];
+    const filter: string[] = [];
+
+    if (baseSpirit.includes(c.spirit.toLowerCase()) || baseSpirit.length == 0)
+      filter.push(c.spirit.toLowerCase());
+    if (tastes.includes(c.taste.toLowerCase()) || tastes.length == 0)
+      filter.push(c.taste.toLowerCase());
+    if (
+      amount.includes(c.amount_ingredients.toLowerCase()) ||
+      amount.length == 0
+    )
+      filter.push(c.amount_ingredients.toLowerCase());
+    if (strength.includes(c.strength.toLowerCase()) || strength.length == 0)
+      filter.push(c.strength.toLowerCase());
+
+    const intersection = arrayEquals(contains, filter);
+
+    if (intersection && search) {
+      if (c.name.toLowerCase().includes(search.toLowerCase())) filtered.push(c);
+    } else if (intersection && !search) filtered.push(c);
   });
 
   return (
     <div className="flex gap-4">
-      {filtered.map((d) => {
-        return (
-          <div key={d.name}>
-            <DrinkCard data={d} />
-          </div>
-        );
-      })}
+      {filtered &&
+        filtered.map((d) => {
+          return (
+            <div key={d.name}>
+              <DrinkCard data={d} />
+            </div>
+          );
+        })}
     </div>
   );
 };
