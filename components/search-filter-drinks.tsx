@@ -143,6 +143,16 @@ const SearchFilterDrinks = () => {
     return element.checked;
   }
 
+  /* useEffect(() => {
+    const input = document.getElementById("search");
+    input?.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        search();
+      }
+    });
+  }); */
+
   const params = useSearchParams();
   function search() {
     //@ts-ignore
@@ -155,15 +165,14 @@ const SearchFilterDrinks = () => {
       router.push(slug);
     } else if (!input && params.toString()) {
       if (params.toString().includes("search")) {
-        const single =
-          params.toString().indexOf("&") > 0
-            ? "&"
-            : params.toString().slice(-1);
-
-        const idx = params.toString().indexOf(single);
-        const rmSearch = params.toString().substring(0, idx + 1);
-        const newSlug = params.toString().replace(rmSearch, "");
-
+        const single = params.toString().indexOf("&") > 0 ? "&" : null;
+        let newSlug;
+        if (single) {
+          const idx = params.toString().indexOf(single);
+          const rmSearch = params.toString().substring(0, idx + 1);
+          newSlug = params.toString().replace(rmSearch, "");
+        }
+        if (!single) newSlug = "";
         const slug = "?" + newSlug;
         router.push(slug);
       } else {
@@ -394,6 +403,9 @@ const SearchFilterDrinks = () => {
             id="search"
             placeholder="Search..."
             type="text"
+            onChange={() => {
+              search();
+            }}
           />
           <button
             type="button"
