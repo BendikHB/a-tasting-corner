@@ -1,6 +1,8 @@
 "use client";
 
 import { ArrowRight } from "@/public/icons/arrow-right";
+import { dropDown } from "@/utils/dropDown";
+import HandleClickOutside from "@/utils/handleClickOutside";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
@@ -153,9 +155,15 @@ const SearchFilterDrinks = () => {
       router.push(slug);
     } else if (!input && params.toString()) {
       if (params.toString().includes("search")) {
-        const idx = params.toString().indexOf("&");
+        const single =
+          params.toString().indexOf("&") > 0
+            ? "&"
+            : params.toString().slice(-1);
+
+        const idx = params.toString().indexOf(single);
         const rmSearch = params.toString().substring(0, idx + 1);
         const newSlug = params.toString().replace(rmSearch, "");
+
         const slug = "?" + newSlug;
         router.push(slug);
       } else {
@@ -167,20 +175,18 @@ const SearchFilterDrinks = () => {
     }
   }
 
+  let domNode = HandleClickOutside(() => {
+    dropDown(false, undefined, ["base-spirit", "tastes", "strength", "amount"]);
+    setDropAmount(false);
+    setDropStrength(false);
+    setDropTastes(false);
+    setDropBase(false);
+  });
+
   const [dropBase, setDropBase] = useState(false);
   const [dropTastes, setDropTastes] = useState(false);
   const [dropStrength, setDropStrength] = useState(false);
   const [dropAmount, setDropAmount] = useState(false);
-
-  function dropDown(id: string, active: boolean) {
-    const element = document.getElementById(id);
-    if (element && active) {
-      element.style.display = "block";
-    }
-    if (element && !active) {
-      element.style.display = "none";
-    }
-  }
 
   const baseSpiritOptions = ["gin", "vodka", "rum", "tequila", "whiskey"];
   const tasteOptions = ["sweet", "bitter", "sour", "fruity", "savory"];
@@ -188,13 +194,13 @@ const SearchFilterDrinks = () => {
   const amountOptions = ["2", "3", "4", "5", "6", "0"];
 
   return (
-    <div className="flex gap-3 py-2">
+    <div className="flex gap-3 py-2" ref={domNode}>
       <div className="relative">
         <div>
           <button
             className="border rounded p-2 duration-300 hover:bg-light min-w-48"
             onClick={() => {
-              dropDown("base-spirit", !dropBase);
+              dropDown(!dropBase, "base-spirit");
               setDropBase(!dropBase);
             }}
           >
@@ -237,7 +243,7 @@ const SearchFilterDrinks = () => {
           <button
             className="border rounded p-2 duration-300 hover:bg-light min-w-48"
             onClick={() => {
-              dropDown("tastes", !dropTastes);
+              dropDown(!dropTastes, "tastes");
               setDropTastes(!dropTastes);
             }}
           >
@@ -277,7 +283,7 @@ const SearchFilterDrinks = () => {
           <button
             className="border rounded p-2 duration-300 hover:bg-light min-w-48"
             onClick={() => {
-              dropDown("strength", !dropStrength);
+              dropDown(!dropStrength, "strength");
               setDropStrength(!dropStrength);
             }}
           >
@@ -321,7 +327,7 @@ const SearchFilterDrinks = () => {
           <button
             className="border rounded p-2 duration-300 hover:bg-light min-w-48"
             onClick={() => {
-              dropDown("amount", !dropAmount);
+              dropDown(!dropAmount, "amount");
               setDropAmount(!dropAmount);
             }}
           >

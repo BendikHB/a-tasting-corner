@@ -3,6 +3,7 @@
 import { Drink } from "@/types/Drinks";
 import { useSearchParams } from "next/navigation";
 import DrinkCard from "./drink-card";
+import { arrayEquals } from "@/utils/arrayEquals";
 
 interface IDrinks {
   drinks: Drink[];
@@ -21,15 +22,6 @@ const FilteredDrinks = ({ drinks }: IDrinks) => {
   const strength = params.get("strength")
     ? params.get("strength").split(" ")
     : [];
-
-  function arrayEquals(a: string[], b: string[]) {
-    return (
-      Array.isArray(a) &&
-      Array.isArray(b) &&
-      a.length === b.length &&
-      a.every((val, idx) => val === b[idx])
-    );
-  }
 
   const filtered: Drink[] = [];
   drinks.forEach((c) => {
