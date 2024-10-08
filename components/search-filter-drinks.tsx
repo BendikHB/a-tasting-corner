@@ -260,7 +260,7 @@ const SearchFilterDrinks = () => {
       <div className="relative">
         <div>
           <button
-            className="border rounded p-2 duration-300 hover:bg-light min-w-48"
+            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
             onClick={() => {
               dropDown(!dropBase, "base-spirit");
               setDropBase(!dropBase);
@@ -271,7 +271,7 @@ const SearchFilterDrinks = () => {
         </div>
         <div
           id="base-spirit"
-          className="hidden bg-white absolute z-10 p-4 min-w-48"
+          className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
         >
           {baseSpiritOptions.map((c) => {
             return (
@@ -287,7 +287,7 @@ const SearchFilterDrinks = () => {
                       active: checked(c + "-checkbox"),
                     });
                   }}
-                  className="w-4 h-4 accent-primary rounded"
+                  className="w-4 h-4 accent-primary rounded-sm"
                 />
                 <label
                   htmlFor={c + "-checkbox"}
@@ -303,7 +303,7 @@ const SearchFilterDrinks = () => {
       <div className="relative">
         <div>
           <button
-            className="border rounded p-2 duration-300 hover:bg-light min-w-48"
+            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
             onClick={() => {
               dropDown(!dropTastes, "tastes");
               setDropTastes(!dropTastes);
@@ -312,7 +312,10 @@ const SearchFilterDrinks = () => {
             Tastes
           </button>
         </div>
-        <div id="tastes" className="hidden bg-white absolute z-10 p-4 min-w-48">
+        <div
+          id="tastes"
+          className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
+        >
           {tasteOptions.map((c) => {
             return (
               <div className="flex items-center mb-4" key={c + " tastes"}>
@@ -327,7 +330,7 @@ const SearchFilterDrinks = () => {
                       active: checked(c + "-checkbox"),
                     });
                   }}
-                  className="w-4 h-4 accent-primary rounded"
+                  className="w-4 h-4 accent-primary rounded-sm"
                 />
                 <label
                   htmlFor={c + "-checkbox"}
@@ -343,7 +346,7 @@ const SearchFilterDrinks = () => {
       <div className="relative">
         <div>
           <button
-            className="border rounded p-2 duration-300 hover:bg-light min-w-48"
+            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
             onClick={() => {
               dropDown(!dropStrength, "strength");
               setDropStrength(!dropStrength);
@@ -354,7 +357,7 @@ const SearchFilterDrinks = () => {
         </div>
         <div
           id="strength"
-          className="hidden bg-white absolute z-10 p-4 min-w-48"
+          className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
         >
           {strengthOptions.map((c) => {
             const prettyName = c === "no" ? "Non-alcoholic" : c;
@@ -371,7 +374,7 @@ const SearchFilterDrinks = () => {
                       active: checked(c + "-checkbox"),
                     });
                   }}
-                  className="w-4 h-4 accent-primary rounded"
+                  className="w-4 h-4 accent-primary rounded-sm"
                 />
                 <label
                   htmlFor={c + "-checkbox"}
@@ -387,7 +390,7 @@ const SearchFilterDrinks = () => {
       <div className="relative">
         <div>
           <button
-            className="border rounded p-2 duration-300 hover:bg-light min-w-48"
+            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
             onClick={() => {
               dropDown(!dropAmount, "amount");
               setDropAmount(!dropAmount);
@@ -396,7 +399,10 @@ const SearchFilterDrinks = () => {
             Amount of ingredients
           </button>
         </div>
-        <div id="amount" className="hidden bg-white absolute z-10 p-4 min-w-48">
+        <div
+          id="amount"
+          className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
+        >
           {amountOptions.map((c) => {
             let prettyName;
             switch (c) {
@@ -436,7 +442,7 @@ const SearchFilterDrinks = () => {
                       active: checked(c + "-checkbox"),
                     });
                   }}
-                  className="w-4 h-4 accent-primary rounded"
+                  className="w-4 h-4 accent-primary rounded-sm"
                 />
                 <label
                   htmlFor={c + "-checkbox"}
@@ -452,7 +458,7 @@ const SearchFilterDrinks = () => {
       <div className="flex gap-2">
         <div className="relative">
           <input
-            className="rounded border border-black p-2 relative"
+            className="rounded-sm border border-black p-2 relative"
             id="search"
             placeholder="Search..."
             type="text"
@@ -470,7 +476,7 @@ const SearchFilterDrinks = () => {
         </div>
         <button
           type="button"
-          className="border rounded p-2 duration-300 hover:bg-light"
+          className="border rounded-sm p-2 duration-300 hover:bg-light"
           onClick={() => {
             search();
           }}

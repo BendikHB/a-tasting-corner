@@ -1,4 +1,3 @@
-import DrinkCard from "@/components/drink-card";
 import { getDrinks, getPage } from "@/sanity/sanity-utils";
 import React from "react";
 import Link from "next/link";
@@ -45,9 +44,8 @@ export default async function Page() {
           </Link>
         )}
       </section>
-      <section className="max-w-4xl mx-auto pt-20">
+      <section className="flex flex-col items-center mx-auto pt-16">
         <SearchFilterDrinks />
-
         {drinks && <FilteredDrinks drinks={drinks} />}
       </section>
     </div>
