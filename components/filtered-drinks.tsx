@@ -11,7 +11,6 @@ interface IDrinks {
 
 const FilteredDrinks = ({ drinks }: IDrinks) => {
   const params = useSearchParams();
-
   const search = params.get("search");
 
   const baseSpirit = params.get("basespirit")?.split(" ")
@@ -53,12 +52,12 @@ const FilteredDrinks = ({ drinks }: IDrinks) => {
   });
 
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 pt-5">
       {filtered &&
         filtered.map((d) => {
           return (
             <div key={d.name}>
-              <DrinkCard data={d} />
+              <DrinkCard data={d} basePath={"/beverages/drinks/"} />
             </div>
           );
         })}

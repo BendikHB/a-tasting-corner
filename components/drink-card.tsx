@@ -5,10 +5,12 @@ import Link from "next/link";
 
 interface IDrinkCard {
   data: Drink;
+  basePath: string;
 }
 
-const DrinkCard = ({ data }: IDrinkCard) => {
+const DrinkCard = ({ data, basePath }: IDrinkCard) => {
   const { name, slug, strength, taste, amount_ingredients, image } = data;
+  const newSlug = basePath + slug;
 
   let strengthString;
   switch (strength) {
@@ -52,7 +54,7 @@ const DrinkCard = ({ data }: IDrinkCard) => {
   }
 
   return (
-    <Link href={slug}>
+    <Link href={newSlug}>
       <div className="h-[200px] w-[300px] relative">
         <Image
           src={image}
