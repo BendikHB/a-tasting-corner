@@ -14,24 +14,29 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const pages = await getPages();
+  const menu = ["about", "beverages"];
 
   return (
     <html lang="en">
       <body>
         <div className="flex flex-row-reverse">
-          <header className="p-6 text-xl sticky z-50 bg-white min-w-fit top-0 h-screen">
-            <div className="flex flex-col items-end">
+          <header className="p-6 text-xl sticky z-50 bg-black min-w-fit top-0 h-screen border-l border-black">
+            <div className="flex flex-col items-end text-white">
               <Link href={"/"} className="text-5xl font-CormorantUpright">
                 a tasting corner
               </Link>
               <div className="text-primary">Elevate your palate</div>
             </div>
-            <div className="flex items-center gap-8">
-              {pages.map((page) => (
-                <Link key={page._id} href={`/${page.slug}`}>
-                  {page.heading}
-                </Link>
-              ))}
+            <div className="flex flex-col items-end gap-8 pt-8 text-white">
+              {pages.map((page) => {
+                if (menu.includes(page.name.toLowerCase())) {
+                  return (
+                    <Link key={page._id} href={`/${page.slug}`}>
+                      {page.name}
+                    </Link>
+                  );
+                }
+              })}
             </div>
           </header>
           <main className="w-full">{children}</main>
