@@ -1,10 +1,11 @@
 "use client";
 
 import { ArrowRight } from "@/public/icons/arrow-right";
+import { Close } from "@/public/icons/close";
 import { dropDown } from "@/utils/dropDown";
 import HandleClickOutside from "@/utils/handleClickOutside";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface IFilter {
   type: string;
@@ -19,6 +20,7 @@ const SearchFilterDrinks = () => {
   const [alcoholStrength, setAlcoholStrength] = useState("");
 
   const router = useRouter();
+  const params = useSearchParams();
 
   function setFilter(obj: IFilter) {
     let filter = null;
@@ -26,6 +28,7 @@ const SearchFilterDrinks = () => {
     let tastesString = tastes;
     let amountIngredientsString = amountIngredients;
     let alcoholStrengthString = alcoholStrength;
+    const searchString = params.get("search");
 
     if (!baseSpirit.includes(obj.tag) && obj.type === "baseSpirit") {
       if (baseSpiritString) {
@@ -129,10 +132,15 @@ const SearchFilterDrinks = () => {
       if (filter?.indexOf("&") == 0) filter = filter.substring(1);
     }
 
-    if (filter) {
+    if (filter && searchString) {
+      router.push("?search=" + searchString + "&" + filter);
+    }
+    if (filter && !searchString) {
       router.push("?" + filter);
     }
-    if (!filter) {
+    if (!filter && searchString) {
+      router.push("?search=" + searchString);
+    } else if (!filter) {
       router.push("/beverages/drinks");
     }
   }
@@ -143,45 +151,90 @@ const SearchFilterDrinks = () => {
     return element.checked;
   }
 
-  /* useEffect(() => {
+  useEffect(() => {
     const input = document.getElementById("search");
-    input?.addEventListener("keypress", function (event) {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        search();
-      }
-    });
-  }); */
+    if (input) {
+      input.addEventListener(
+        "keyup",
+        function (event) {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            search();
+          }
+        },
+        true,
+      );
 
-  const params = useSearchParams();
+      input.removeEventListener(
+        "keyup",
+        function (event) {
+          console.log("removing event listener");
+          if (event.key === "Enter") {
+            event.preventDefault();
+            search();
+          }
+        },
+        true,
+      );
+    }
+  }),
+    [];
+
   function search() {
     //@ts-ignore
     const input = document.getElementById("search").value;
-    if (input && params.toString()) {
-      const slug = "?" + "search=" + input + "&" + params.toString();
+    const btn = document.getElementById("reset-btn");
+    //@ts-ignore
+    if (input && btn) {
+      btn.style.display = "block";
+    }
+    const filterString = params.toString();
+
+    if (input && filterString) {
+      let newSlug = "";
+      if (filterString.includes("search")) {
+        const single = filterString.indexOf("&") > 0 ? "&" : null;
+        if (single) {
+          const idx = filterString.indexOf(single);
+          const rmSearch = filterString.substring(0, idx + 1);
+          newSlug = filterString.replace(rmSearch, "");
+        }
+        if (!single) newSlug = "";
+      } else if (filterString) newSlug = filterString;
+      if (newSlug) newSlug = "&" + newSlug;
+      const slug = "?" + "search=" + input + newSlug;
       router.push(slug);
     } else if (input) {
       const slug = "?" + "search=" + input;
       router.push(slug);
-    } else if (!input && params.toString()) {
-      if (params.toString().includes("search")) {
-        const single = params.toString().indexOf("&") > 0 ? "&" : null;
+    } else if (!input && filterString) {
+      if (filterString.includes("search")) {
+        const single = filterString.indexOf("&") > 0 ? "&" : null;
         let newSlug;
         if (single) {
-          const idx = params.toString().indexOf(single);
-          const rmSearch = params.toString().substring(0, idx + 1);
-          newSlug = params.toString().replace(rmSearch, "");
+          const idx = filterString.indexOf(single);
+          const rmSearch = filterString.substring(0, idx + 1);
+          newSlug = filterString.replace(rmSearch, "");
         }
         if (!single) newSlug = "";
         const slug = "?" + newSlug;
         router.push(slug);
       } else {
-        const slug = "?" + params.toString();
+        const slug = "?" + filterString;
         router.push(slug);
       }
     } else {
       router.push("/beverages/drinks");
     }
+  }
+
+  function resetField(id: string) {
+    const el = document.getElementById(id);
+    const btn = document.getElementById("reset-btn");
+    //@ts-ignore
+    if (el) el.value = "";
+    if (el && btn) btn.style.display = "none";
+    search();
   }
 
   let domNode = HandleClickOutside(() => {
@@ -396,27 +449,34 @@ const SearchFilterDrinks = () => {
           })}
         </div>
       </div>
-      <div>
-        <div className="flex gap-2">
+      <div className="flex gap-2">
+        <div className="relative">
           <input
-            className="rounded border border-black p-2"
+            className="rounded border border-black p-2 relative"
             id="search"
             placeholder="Search..."
             type="text"
-            onChange={() => {
-              search();
-            }}
           />
           <button
+            id="reset-btn"
             type="button"
-            className="border rounded p-2 duration-300 hover:bg-light"
+            className="p-2 absolute z-10 right-1 top-2/4 -translate-y-2/4 hidden"
             onClick={() => {
-              search();
+              resetField("search");
             }}
           >
-            <ArrowRight width={28} height={8} color="#000" />
+            <Close width={10} height={10} color="#2A1D18" />
           </button>
         </div>
+        <button
+          type="button"
+          className="border rounded p-2 duration-300 hover:bg-light"
+          onClick={() => {
+            search();
+          }}
+        >
+          <ArrowRight width={28} height={8} color="#000" />
+        </button>
       </div>
     </div>
   );
