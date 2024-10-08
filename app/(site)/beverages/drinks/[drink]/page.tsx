@@ -1,3 +1,4 @@
+import DrinkCard from "@/components/drink-card";
 import Ingredients from "@/components/ingredients";
 import SwitchBtn from "@/components/switch-btn/switch-btn";
 import { getDrink } from "@/sanity/sanity-utils";
@@ -16,7 +17,7 @@ export default async function Drink({ params }: Props) {
   return (
     <>
       <section className="w-full">
-        <div className="p-5 pb-0 h-[600px]">
+        <div className="h-[600px]">
           <div className="h-full w-full relative">
             {drink?.image && (
               <Image
@@ -57,19 +58,29 @@ export default async function Drink({ params }: Props) {
           <div className="mt-4">
             <PortableText value={drink.how} />
           </div>
-          <h2 className="text-3xl mt-16">More info:</h2>
-          <div className="mt-4 pb-6">
-            <PortableText value={drink.additional} />
-          </div>
+          {drink.additional && (
+            <>
+              <h2 className="text-3xl mt-16">More info:</h2>
+              <div className="mt-4 pb-6">
+                <PortableText value={drink.additional} />
+              </div>
+            </>
+          )}
         </div>
       </section>
       <section className="flex mb-16 mt-2 max-w-7xl mx-auto justify-end">
         <div className="w-2/3 px-6">
           <h2 className="text-3xl mt-3">Similar options:</h2>
           {drink.similar && (
-            <div>
+            <div className="flex gap-6 pt-6">
               {drink.similar.map((d) => {
-                return <h3 key={d._id}>{d.slug}</h3>;
+                return (
+                  <DrinkCard
+                    key={d._id}
+                    data={d}
+                    basePath="/beverages/drinks/"
+                  />
+                );
               })}
             </div>
           )}
