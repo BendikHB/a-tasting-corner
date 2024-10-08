@@ -4,8 +4,7 @@
 
 @font-face {
   font-family: "Raleway";
-  src: url(../public/fonts/Raleway-VariableFont_wght.ttf)
-    format("truetype-variations");
+  src: url(../public/fonts/Raleway-VariableFont_wght.ttf) format("truetype-variations");
   font-weight: 400 700;
   font-style: normal;
 }
@@ -34,5 +33,9 @@
   body {
     font-family: "Raleway", sans-serif;
     font-weight: 400;
+  }
+
+  li {
+    margin-bottom: 5px;
   }
 }
