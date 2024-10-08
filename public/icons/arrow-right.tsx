@@ -1,8 +1,4 @@
-interface Iicon {
-  width: number;
-  height: number;
-  color: string;
-}
+import { Iicon } from "./interface";
 
 export const ArrowRight = ({ width, height, color }: Iicon) => {
   return (
