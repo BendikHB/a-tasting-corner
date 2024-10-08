@@ -10,8 +10,6 @@ export default async function Page() {
   const {
     image,
     alt,
-    altTwo,
-    imageTwo,
     url,
     linkText,
     urlTwo,
@@ -47,7 +45,7 @@ export default async function Page() {
                 <Image
                   src={image}
                   alt={alt}
-                  layout="fill"
+                  fill
                   style={{ objectFit: "cover" }}
                 />
                 <button className="text-3xl absolute bottom-0 left-0 p-6 bg-black text-white">
