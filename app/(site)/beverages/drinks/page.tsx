@@ -44,7 +44,7 @@ export default async function Page() {
           </Link>
         )}
       </section>
-      <section className="flex flex-col items-center mx-auto pt-16">
+      <section className="flex flex-col items-center mx-auto pt-16 px-10">
         <SearchFilterDrinks />
         {drinks && <FilteredDrinks drinks={drinks} />}
       </section>

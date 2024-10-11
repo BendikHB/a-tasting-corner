@@ -52,7 +52,7 @@ const FilteredDrinks = ({ drinks }: IDrinks) => {
   });
 
   return (
-    <div className="flex gap-4 pt-5">
+    <div className="flex gap-4 pt-5 flex-wrap max-w-full justify-center">
       {filtered &&
         filtered.map((d) => {
           return (
