@@ -14,12 +14,16 @@ const FilteredDrinks = ({ drinks }: IDrinks) => {
   const search = params.get("search");
 
   const baseSpirit = params.get("basespirit")?.split(" ")
-    ? params.get("basespirit").split(" ")
+    ? //@ts-ignore
+      params.get("basespirit").split(" ")
     : [];
+  //@ts-ignore
   const tastes = params.get("tastes") ? params.get("tastes").split(" ") : [];
+  //@ts-ignore
   const amount = params.get("amount") ? params.get("amount").split(" ") : [];
   const strength = params.get("strength")
-    ? params.get("strength").split(" ")
+    ? //@ts-ignore
+      params.get("strength").split(" ")
     : [];
 
   const filtered: Drink[] = [];
