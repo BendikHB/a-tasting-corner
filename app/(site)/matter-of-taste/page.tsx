@@ -10,7 +10,7 @@ export default async function Page() {
     <>
       {page && (
         <div>
-          <h1 className="text-5xl">{page.title}</h1>
+          <h1 className="text-5xl">{page.name}</h1>
           {projects && (
             <div className="max-w-5xl mx-auto py-20">
               {projects.map((project) => {
@@ -23,7 +23,7 @@ export default async function Page() {
             </div>
           )}
           <div>
-            <PortableText value={page.content} />
+            <PortableText value={page.intro} />
           </div>
         </div>
       )}
