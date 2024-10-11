@@ -2,11 +2,17 @@ import type { Metadata } from "next";
 import "../globals.css";
 import Link from "next/link";
 import { getPages } from "@/sanity/sanity-utils";
+import { Page } from "@/types/Pages";
 
 export const metadata: Metadata = {
   title: "a tasting corner",
   description: "Elevate your palate",
 };
+
+interface menu {
+  main: Page;
+  subList?: Page[];
+}
 
 export default async function RootLayout({
   children,
@@ -15,12 +21,28 @@ export default async function RootLayout({
 }>) {
   const pages = await getPages();
   const menu = ["about", "beverages"];
+  const drinksMenu = ["drinks", "wines"];
+  const sortedMenu: menu[] = [];
+
+  pages.forEach((page) => {
+    const subMenu: Page[] = [];
+    if (page.name.toLowerCase() === "beverages") {
+      pages.forEach((c) => {
+        if (drinksMenu.includes(c.name.toLowerCase())) subMenu.push(c);
+      });
+    }
+    if (subMenu && menu.includes(page.name.toLowerCase())) {
+      sortedMenu.push({ main: page, subList: subMenu });
+    } else if (menu.includes(page.name.toLowerCase())) {
+      sortedMenu.push({ main: page });
+    }
+  });
 
   return (
     <html lang="en">
       <body>
         <div className="flex flex-row-reverse">
-          <header className="p-6 text-xl sticky z-50 bg-black min-w-fit top-0 h-screen border-l border-black">
+          <header className="p-6 text-2xl sticky z-50 bg-black min-w-fit top-0 h-screen border-l border-black">
             <div className="flex flex-col items-end text-white">
               <Link href={"/"} className="text-5xl font-CormorantUpright">
                 a tasting corner
@@ -28,15 +50,28 @@ export default async function RootLayout({
               <div className="text-primary">Elevate your palate</div>
             </div>
             <div className="flex flex-col items-end gap-8 pt-8 text-white">
-              {pages.map((page) => {
-                if (menu.includes(page.name.toLowerCase())) {
+              {sortedMenu &&
+                sortedMenu.map((page) => {
+                  const { main, subList } = page;
                   return (
-                    <Link key={page._id} href={`/${page.slug}`}>
-                      {page.name}
-                    </Link>
+                    <div key={main._id}>
+                      <Link href={`/${main.slug}`}>{main.name}</Link>
+                      <div className="flex flex-col items-end text-base gap-4 pt-4">
+                        {subList &&
+                          subList.map((subPage) => {
+                            return (
+                              <Link
+                                key={subPage._id}
+                                href={`/${main.slug}/${subPage.slug}`}
+                              >
+                                {subPage.name}
+                              </Link>
+                            );
+                          })}
+                      </div>
+                    </div>
                   );
-                }
-              })}
+                })}
             </div>
           </header>
           <main className="w-full">{children}</main>
