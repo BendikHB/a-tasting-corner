@@ -1,5 +1,5 @@
 import { getDrinks, getPage } from "@/sanity/sanity-utils";
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "@/public/icons/arrow-right";
@@ -45,8 +45,10 @@ export default async function Page() {
         )}
       </section>
       <section className="flex flex-col items-center mx-auto pt-16 px-10">
-        <SearchFilterDrinks />
-        {drinks && <FilteredDrinks drinks={drinks} />}
+        <Suspense>
+          <SearchFilterDrinks />
+          {drinks && <FilteredDrinks drinks={drinks} />}
+        </Suspense>
       </section>
     </div>
   );
