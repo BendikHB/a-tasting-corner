@@ -18,7 +18,7 @@ const DrinkCard = ({ data, basePath }: IDrinkCard) => {
       strengthString = "Low in alcohol";
       break;
     case "medium":
-      strengthString = "Regular amount for drinks";
+      strengthString = "Normal";
       break;
     case "high":
       strengthString = "High in alcohol";
@@ -54,8 +54,8 @@ const DrinkCard = ({ data, basePath }: IDrinkCard) => {
   }
 
   return (
-    <Link href={newSlug}>
-      <div className="h-[200px] w-[300px] relative">
+    <Link href={newSlug} className="flex flex-col flex-grow">
+      <div className="h-[120px] w-full md:h-[200px] md:w-[300px] relative">
         <Image
           src={image}
           alt={"image of " + name}
@@ -63,15 +63,23 @@ const DrinkCard = ({ data, basePath }: IDrinkCard) => {
           style={{ objectFit: "cover" }}
         />
       </div>
-      <div className="shadow-md p-4 pt-3">
+      <div className="shadow-md p-4 pt-3 flex-grow flex flex-col">
         <h3 className="text-lg">{name}</h3>
         <p className="text-xs">{ingredientsString}</p>
-        <div className="flex justify-between items-end">
-          <div className="flex gap-3 text-xs pt-2">
-            <p>{taste}</p>
-            <p>{strengthString}</p>
+        <div className="flex flex-col gap-1 md:flex-row justify-between md:items-end flex-grow">
+          <div className="flex flex-wrap gap-3 text-xs pt-2 pb-1 md:pb-0">
+            <div className="pb-1 md:pb-0">
+              <p className="font-semibold">Taste:</p>
+              <p>{taste}</p>
+            </div>
+            <div>
+              <p className="font-semibold">Alcohol:</p>
+              <p>{strengthString}</p>
+            </div>
           </div>
-          <ArrowRight width={38} height={8} color="#000" />
+          <div className="hidden md:block pb-[3px]">
+            <ArrowRight width={38} height={8} color="#000" />
+          </div>
         </div>
       </div>
     </Link>

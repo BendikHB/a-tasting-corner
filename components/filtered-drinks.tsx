@@ -60,7 +60,7 @@ const FilteredDrinks = ({ drinks }: IDrinks) => {
       {filtered &&
         filtered.map((d) => {
           return (
-            <div key={d.name}>
+            <div key={d.name} className="basis-[46%] md:basis-auto flex">
               <DrinkCard data={d} basePath={"/beverages/drinks/"} />
             </div>
           );

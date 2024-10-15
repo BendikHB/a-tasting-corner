@@ -256,7 +256,7 @@ const SearchFilterDrinks = () => {
   const amountOptions = ["2", "3", "4", "5", "6", "0"];
 
   return (
-    <div className="flex gap-3 py-2" ref={domNode}>
+    <div className="flex gap-3 py-2 flex-wrap justify-center" ref={domNode}>
       <div className="relative">
         <div>
           <button

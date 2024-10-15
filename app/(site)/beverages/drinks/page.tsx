@@ -15,15 +15,15 @@ export default async function Page() {
 
   return (
     <div className="mx-auto">
-      <section className="flex gap-5 p-5 bg-black h-[50vh]">
-        <div className="w-1/2 bg-black p-12 pb-16 h-full flex flex-col justify-center items-start text-white">
+      <section className="flex flex-col md:flex-row gap-5 p-5 bg-black h-[50vh]">
+        <div className="w-1/2 bg-black p-4 md:p-12 md:pb-16 md:h-full flex flex-col justify-center items-start text-white">
           <h1 className="text-5xl mb-5 max-w-md font-Raleway">{heading}</h1>
           <div className="text-xl">
             <PortableText value={intro} />
           </div>
         </div>
         {image && (
-          <Link href={url} className="relative w-1/2 cursor-pointer h-full">
+          <Link href={url} className="relative md:w-1/2 cursor-pointer h-full">
             <Image
               src={image}
               alt={alt}
@@ -44,7 +44,7 @@ export default async function Page() {
           </Link>
         )}
       </section>
-      <section className="flex flex-col items-center mx-auto pt-16 px-10">
+      <section className="flex flex-col items-center mx-auto pt-16 px-5 md:px-10">
         <Suspense>
           <SearchFilterDrinks />
           {drinks && <FilteredDrinks drinks={drinks} />}

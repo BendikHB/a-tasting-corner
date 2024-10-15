@@ -3,6 +3,8 @@ import "../globals.css";
 import Link from "next/link";
 import { getPages } from "@/sanity/sanity-utils";
 import { Page } from "@/types/Pages";
+import { dropDown } from "@/utils/dropDown";
+import DropDownMenu from "@/components/drop-down-menu";
 
 export const metadata: Metadata = {
   title: "a tasting corner",
@@ -41,37 +43,44 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex flex-row-reverse">
-          <header className="p-6 text-2xl sticky z-50 bg-black min-w-fit top-0 h-screen border-l border-black">
-            <div className="flex flex-col items-end text-white">
-              <Link href={"/"} className="text-5xl font-CormorantUpright">
-                a tasting corner
-              </Link>
-              <div className="text-primary">Elevate your palate</div>
+        <div className="flex flex-col md:flex-row-reverse">
+          <header className="p-6 text-2xl sticky z-50 bg-black min-w-fit top-0 md:h-screen border-l border-black">
+            <div className="flex">
+              <div className="flex flex-col items-end text-white">
+                <Link href={"/"} className="text-5xl font-CormorantUpright">
+                  a tasting corner
+                </Link>
+                <div className="text-primary">Elevate your palate</div>
+              </div>
+              <div className="flex flex-col items-end text-white">
+                <DropDownMenu />
+              </div>
             </div>
-            <div className="flex flex-col items-end gap-8 pt-8 text-white">
-              {sortedMenu &&
-                sortedMenu.map((page) => {
-                  const { main, subList } = page;
-                  return (
-                    <div key={main._id}>
-                      <Link href={`/${main.slug}`}>{main.name}</Link>
-                      <div className="flex flex-col items-end text-base gap-4 pt-4">
-                        {subList &&
-                          subList.map((subPage) => {
-                            return (
-                              <Link
-                                key={subPage._id}
-                                href={`/${main.slug}/${subPage.slug}`}
-                              >
-                                {subPage.name}
-                              </Link>
-                            );
-                          })}
+            <div id="main-menu">
+              <div className="flex flex-col items-end gap-8 pt-8 text-white">
+                {sortedMenu &&
+                  sortedMenu.map((page) => {
+                    const { main, subList } = page;
+                    return (
+                      <div key={main._id}>
+                        <Link href={`/${main.slug}`}>{main.name}</Link>
+                        <div className="flex flex-col items-end text-base gap-4 pt-4">
+                          {subList &&
+                            subList.map((subPage) => {
+                              return (
+                                <Link
+                                  key={subPage._id}
+                                  href={`/${main.slug}/${subPage.slug}`}
+                                >
+                                  {subPage.name}
+                                </Link>
+                              );
+                            })}
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+              </div>
             </div>
           </header>
           <main className="w-full">{children}</main>
