@@ -45,18 +45,21 @@ export default async function RootLayout({
       <body>
         <div className="flex flex-col md:flex-row-reverse">
           <header className="p-6 text-2xl sticky z-50 bg-black min-w-fit top-0 md:h-screen border-l border-black">
-            <div className="flex">
-              <div className="flex flex-col items-end text-white">
+            <div className="flex justify-between">
+              <div className="flex flex-col md:items-end text-white">
                 <Link href={"/"} className="text-5xl font-CormorantUpright">
                   a tasting corner
                 </Link>
                 <div className="text-primary">Elevate your palate</div>
               </div>
-              <div className="flex flex-col items-end text-white">
+              <div className="flex flex-col justify-end text-white">
                 <DropDownMenu />
               </div>
             </div>
-            <div id="main-menu">
+            <div
+              id="main-menu"
+              className="absolute right-0 left-0 h-dvh pr-6 bg-black hidden md:block"
+            >
               <div className="flex flex-col items-end gap-8 pt-8 text-white">
                 {sortedMenu &&
                   sortedMenu.map((page) => {

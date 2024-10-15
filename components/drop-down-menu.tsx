@@ -11,7 +11,7 @@ const DropDownMenu = () => {
   }
 
   return (
-    <a onClick={() => handleClick()} className="text-3xl">
+    <a onClick={() => handleClick()} className="text-2xl md:hidden">
       menu
     </a>
   );
