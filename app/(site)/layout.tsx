@@ -58,7 +58,7 @@ export default async function RootLayout({
             </div>
             <div
               id="main-menu"
-              className="absolute right-0 left-0 h-dvh pr-6 bg-black hidden md:block"
+              className="absolute right-0 left-0 h-0 md:h-dvh pr-6 bg-black md:block opacity-0 md:opacity-100 overflow-hidden"
             >
               <div className="flex flex-col items-end gap-8 pt-8 text-white">
                 {sortedMenu &&
@@ -66,12 +66,18 @@ export default async function RootLayout({
                     const { main, subList } = page;
                     return (
                       <div key={main._id}>
-                        <Link href={`/${main.slug}`}>{main.name}</Link>
+                        <Link
+                          className="border-b border-b-transparent hover:border-b-white transition-all duration-100"
+                          href={`/${main.slug}`}
+                        >
+                          {main.name}
+                        </Link>
                         <div className="flex flex-col items-end text-base gap-4 pt-4">
                           {subList &&
                             subList.map((subPage) => {
                               return (
                                 <Link
+                                  className="border-b border-b-transparent hover:border-b-white transition-all duration-100"
                                   key={subPage._id}
                                   href={`/${main.slug}/${subPage.slug}`}
                                 >
