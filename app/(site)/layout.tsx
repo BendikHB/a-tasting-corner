@@ -47,10 +47,15 @@ export default async function RootLayout({
           <header className="p-6 text-2xl sticky z-50 bg-black min-w-fit top-0 md:h-screen border-l border-black">
             <div className="flex justify-between">
               <div className="flex flex-col md:items-end text-white">
-                <Link href={"/"} className="text-5xl font-CormorantUpright">
+                <Link
+                  href={"/"}
+                  className="text-4xl md:text-5xl font-CormorantUpright"
+                >
                   a tasting corner
                 </Link>
-                <div className="text-primary">Elevate your palate</div>
+                <div className="text-primary text-xl md:text-2xl">
+                  Elevate your palate
+                </div>
               </div>
               <div className="flex flex-col justify-end text-white">
                 <DropDownMenu />
@@ -58,7 +63,7 @@ export default async function RootLayout({
             </div>
             <div
               id="main-menu"
-              className="absolute right-0 left-0 h-0 md:h-dvh pr-6 bg-black md:block opacity-0 md:opacity-100 overflow-hidden"
+              className="absolute right-0 -left-px h-0 md:h-dvh pr-6 bg-black md:block opacity-0 md:opacity-100 overflow-hidden"
             >
               <div className="flex flex-col items-end gap-8 pt-8 text-white">
                 {sortedMenu &&

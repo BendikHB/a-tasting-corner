@@ -15,7 +15,7 @@ export default async function Page() {
 
   return (
     <div className="mx-auto">
-      <section className="flex flex-col md:flex-row gap-5 p-5 bg-black h-[50vh]">
+      <section className="flex flex-col md:flex-row gap-5 p-5 bg-black h-[60vh] md:h-[50vh]">
         <div className="w-1/2 bg-black p-4 md:p-12 md:pb-16 md:h-full flex flex-col justify-center items-start text-white">
           <h1 className="text-5xl mb-5 max-w-md font-Raleway">{heading}</h1>
           <div className="text-xl">
@@ -32,8 +32,10 @@ export default async function Page() {
               priority
             />
             {url && (
-              <div className="px-12 py-8 bg-black absolute bottom-0 left-0">
-                <button className={`text-white text-3xl flex items-end`}>
+              <div className="px-6 md:px-12  py-4 md:py-8 bg-black absolute bottom-0 left-0">
+                <button
+                  className={`text-white text-xl md:text-3xl flex items-end`}
+                >
                   {linkText}
                   <div className="pb-2 pl-3">
                     <ArrowRight width={48} height={10} color={"#FFF"} />
