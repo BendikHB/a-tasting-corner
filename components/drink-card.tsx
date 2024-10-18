@@ -60,6 +60,7 @@ const DrinkCard = ({ data, basePath }: IDrinkCard) => {
           src={image}
           alt={"image of " + name}
           fill
+          sizes="(max-width: 768px) 50vw, 300px"
           style={{ objectFit: "cover" }}
         />
       </div>
@@ -69,11 +70,11 @@ const DrinkCard = ({ data, basePath }: IDrinkCard) => {
         <div className="flex flex-col gap-1 md:flex-row justify-between md:items-end flex-grow">
           <div className="flex flex-wrap gap-3 text-xs pt-2 pb-1 md:pb-0">
             <div className="pb-1 md:pb-0">
-              <p className="font-semibold">Taste:</p>
+              <p className="font-medium">Taste:</p>
               <p>{taste}</p>
             </div>
             <div>
-              <p className="font-semibold">Alcohol:</p>
+              <p className="font-medium">Alcohol:</p>
               <p>{strengthString}</p>
             </div>
           </div>
