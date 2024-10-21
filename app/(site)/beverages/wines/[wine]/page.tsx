@@ -1,5 +1,3 @@
-import Ingredients from "@/components/ingredients";
-import SwitchBtn from "@/components/switch-btn/switch-btn";
 import WineCard from "@/components/wine-card";
 import { getWine } from "@/sanity/sanity-utils";
 import { PortableText } from "next-sanity";
