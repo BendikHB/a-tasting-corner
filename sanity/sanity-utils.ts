@@ -97,8 +97,9 @@ export async function getWines(): Promise<Wines[]> {
             "slug": slug.current,
             "image": image.asset->url,
             "alt": image.alt,
-            url,
-            content
+            type,
+            region,
+            vintage,
         }`,
   );
 }
@@ -113,7 +114,20 @@ export async function getWine(slug: string): Promise<Wines> {
                 "image": image.asset->url,
                 "alt": image.alt,
                 url,
-                content
+                content,
+                type,
+                region,
+                vintage,
+                "similar": similar[]->{
+                  _id,
+                  name,
+                  "slug": slug.current,
+                  "image": image.asset->url,
+                  "alt": image.alt,
+                  type,
+                  region,
+                  vintage,
+                }
             }`,
     { slug },
   );

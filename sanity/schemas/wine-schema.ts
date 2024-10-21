@@ -38,6 +38,44 @@ const wine = {
       type: "array",
       of: [{ type: "block" }],
     },
+    {
+      name: "similar",
+      title: "Similar",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "wine" }] }],
+    },
+    {
+      name: "type",
+      title: "Type",
+      type: "string",
+      options: {
+        list: [
+          { title: "Red", value: "Red" },
+          { title: "White", value: "White" },
+          { title: "Rosé", value: "Rose" },
+          { title: "Sparkling", value: "Sparkling" },
+          { title: "Port", value: "Port" },
+        ],
+      },
+    },
+    {
+      name: "region",
+      title: "Region",
+      type: "string",
+      options: {
+        list: [
+          { title: "New World", value: "New world" },
+          { title: "Old World", value: "Old world" },
+          { title: "France", value: "France" },
+          { title: "Italy", value: "Italy" },
+        ],
+      },
+    },
+    {
+      name: "vintage",
+      title: "Vintage",
+      type: "string",
+    },
   ],
 };
 

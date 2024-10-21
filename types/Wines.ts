@@ -6,6 +6,11 @@ export type Wines = {
   name: string;
   slug: string;
   image: string;
+  alt: string;
   url: string;
   content: PortableTextBlock[];
+  type: string;
+  region: string;
+  vintage: string;
+  similar: Wines[];
 };

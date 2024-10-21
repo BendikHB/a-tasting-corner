@@ -1,12 +1,15 @@
 import { ArrowRight } from "@/public/icons/arrow-right";
-import { getPage } from "@/sanity/sanity-utils";
+import { getPage, getWines } from "@/sanity/sanity-utils";
 import { PortableText } from "next-sanity";
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import React, { Suspense } from "react";
+import SearchFilterWines from "@/components/search-filter-wines";
+import FilteredWines from "@/components/filtered-wines";
 
 export default async function Page() {
   const page = await getPage("wines");
+  const wines = await getWines();
   const { image, alt, url, linkText, heading, intro } = page;
 
   return (
@@ -39,6 +42,12 @@ export default async function Page() {
             )}
           </Link>
         )}
+      </section>
+      <section className="flex flex-col items-center mx-auto pt-16 px-5 md:px-10">
+        <Suspense>
+          <SearchFilterWines />
+          {wines && <FilteredWines wines={wines} />}
+        </Suspense>
       </section>
     </div>
   );
