@@ -3,20 +3,22 @@ import { PortableText } from "next-sanity";
 import React from "react";
 
 export default async function Page() {
-  const page = await getPage("projects");
-  const projects = await getPosts();
+  const page = await getPage("matter-of-taste");
+  const posts = await getPosts();
+
+  console.log(posts, "posts");
 
   return (
     <>
       {page && (
         <div>
           <h1 className="text-5xl">{page.name}</h1>
-          {projects && (
+          {posts && (
             <div className="max-w-5xl mx-auto py-20">
-              {projects.map((project) => {
+              {posts.map((post) => {
                 return (
-                  <div key={project.name}>
-                    <h2>{project.name}</h2>
+                  <div key={post._id}>
+                    <h2>{post.name}</h2>
                   </div>
                 );
               })}

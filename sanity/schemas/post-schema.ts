@@ -28,9 +28,9 @@ const post = {
       ],
     },
     {
-      name: "url",
-      title: "Url",
-      type: "url",
+      name: "heading",
+      title: "Heading",
+      type: "string",
     },
     {
       name: "content",
