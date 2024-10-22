@@ -3,7 +3,6 @@ import "../globals.css";
 import Link from "next/link";
 import { getPages } from "@/sanity/sanity-utils";
 import { Page } from "@/types/Pages";
-import { dropDown } from "@/utils/dropDown";
 import DropDownMenu from "@/components/drop-down-menu";
 
 export const metadata: Metadata = {
@@ -22,7 +21,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const pages = await getPages();
-  const menu = ["about", "beverages"];
+  const menu = ["about", "beverages", "matter of taste"];
   const drinksMenu = ["drinks", "wines"];
   const sortedMenu: menu[] = [];
 
