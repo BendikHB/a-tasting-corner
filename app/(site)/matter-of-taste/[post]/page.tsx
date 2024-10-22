@@ -2,6 +2,8 @@ import Image from "next/image";
 import React from "react";
 import { getPost } from "@/sanity/sanity-utils";
 import { PortableText } from "next-sanity";
+import Link from "next/link";
+import { ArrowLeft } from "@/public/icons/arrow-left";
 
 type Props = {
   params: { post: string };
@@ -12,7 +14,14 @@ export default async function Post({ params }: Props) {
   const post = await getPost(slug);
 
   return (
-    <div className=" w-3/5 mx-auto py-20 my-10 border">
+    <div className=" w-3/5 mx-auto py-20 my-20 border">
+      <Link
+        href={"/matter-of-taste"}
+        className="absolute top-16 left-10 flex items-center"
+      >
+        <ArrowLeft color="#000" height={10} width={60} />
+        <p className="pl-1">Back</p>
+      </Link>
       <div className="h-[500px] max-w-5xl mx-auto">
         <div className="h-full w-full relative">
           {post?.image && (
