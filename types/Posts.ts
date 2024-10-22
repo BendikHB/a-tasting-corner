@@ -9,4 +9,6 @@ export type Post = {
   alt: string;
   heading: string;
   content: PortableTextBlock[];
+  excerpt: string;
+  category: string[];
 };

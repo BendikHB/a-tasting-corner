@@ -15,7 +15,9 @@ export async function getPosts(): Promise<Post[]> {
             "image": image.asset->url,
             "alt": image.alt,
             heading,
-            content
+            content,
+            excerpt,
+            category
         }`,
   );
 }
@@ -30,7 +32,8 @@ export async function getPost(slug: string): Promise<Post> {
                 "image": image.asset->url,
                 "alt": image.alt,
                 heading,
-                content
+                content,
+                category
             }`,
     { slug },
   );

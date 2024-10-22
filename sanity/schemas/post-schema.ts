@@ -38,6 +38,22 @@ const post = {
       type: "array",
       of: [{ type: "block" }],
     },
+    {
+      name: "excerpt",
+      title: "Excerpt",
+      type: "string",
+    },
+    {
+      name: "category",
+      title: "Category",
+      type: "array",
+      of: [{ title: "string", value: "string" }],
+      list: [
+        { title: "Food", value: "food" },
+        { title: "Wine", value: "wine" },
+        { title: "Drink", value: "drinks" },
+      ],
+    },
   ],
 };
 
