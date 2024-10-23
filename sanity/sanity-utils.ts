@@ -4,6 +4,7 @@ import { Wines } from "@/types/Wines";
 import { Drink } from "@/types/Drinks";
 import { Post } from "@/types/Posts";
 import { Page } from "@/types/Pages";
+import { Food } from "@/types/Food";
 
 export async function getPosts(): Promise<Post[]> {
   return createClient(clientConfig).fetch(
@@ -131,6 +132,65 @@ export async function getWine(slug: string): Promise<Wines> {
                   region,
                   vintage,
                 }
+            }`,
+    { slug },
+  );
+}
+
+export async function getFoods(): Promise<Food[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "food"]{
+            _id,
+            _createdAt,
+            name,
+            "slug": slug.current,
+            "image": image.asset->url,
+            "alt": image.alt,
+            type,
+            cuisine,
+            characteristics,
+            mainIngredient,
+            category,
+            rating,
+            recommended,
+        }`,
+  );
+}
+
+export async function getFood(slug: string): Promise<Food> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "food" && slug.current == $slug][0]{
+                _id,
+                _createdAt,
+                name,
+                "slug": slug.current,
+                "image": image.asset->url,
+                "alt": image.alt,
+                url,
+                how,
+                ingredients,
+                type,
+                cuisine,
+                category,
+                "similar": similar[]->{
+                  _id,
+                  name,
+                  "slug": slug.current,
+                  "image": image.asset->url,
+                  "alt": image.alt,
+                  type,
+                  characteristics,
+                  cuisine,
+                  category,
+                  rating,
+                  recommended,
+                },
+                time,
+                characteristics,
+                mainIngredient,
+                rating,
+                recommended,
+                recommendation,
             }`,
     { slug },
   );

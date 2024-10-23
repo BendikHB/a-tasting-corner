@@ -9,6 +9,7 @@ import {
   textSection,
 } from "./custom-types";
 import wine from "./wine-schema";
+import food from "./food-schema";
 
 const schemas = [
   post,
@@ -20,6 +21,7 @@ const schemas = [
   buttonList,
   cta,
   formWithText,
+  food,
 ];
 
 export default schemas;
