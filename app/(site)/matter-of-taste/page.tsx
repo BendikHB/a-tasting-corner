@@ -6,6 +6,7 @@ import React from "react";
 import { ArrowRight } from "@/public/icons/arrow-right";
 import Card from "@/components/card";
 import SearchFilterPosts from "@/components/search-filter-posts/search-filter-posts";
+import FilteredPosts from "@/components/filtered-posts";
 
 export default async function Page() {
   const page = await getPage("matter-of-taste");
@@ -79,17 +80,7 @@ export default async function Page() {
 
       <section className="mt-10">
         <SearchFilterPosts />
-        {posts && (
-          <div className="max-w-5xl mx-auto pb-20 flex flex-wrap gap-4">
-            {posts.map((post) => {
-              return (
-                <div key={post._id}>
-                  <Card data={post} basePath="/matter-of-taste/" />
-                </div>
-              );
-            })}
-          </div>
-        )}
+        <FilteredPosts posts={posts} />
       </section>
     </div>
   );

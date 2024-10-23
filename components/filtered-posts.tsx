@@ -9,7 +9,7 @@ interface IPosts {
   posts: Post[];
 }
 
-const FilteredWines = ({ posts }: IPosts) => {
+const FilteredPosts = ({ posts }: IPosts) => {
   const params = useSearchParams();
   const search = params.get("search");
 
@@ -20,11 +20,13 @@ const FilteredWines = ({ posts }: IPosts) => {
 
   const filtered: Post[] = [];
   posts.forEach((c) => {
-    const contains = c.category.map((c) => c.toLowerCase());
+    const contains = c.category ? c.category.map((c) => c.toLowerCase()) : [];
     const filter: string[] = [];
 
-    if (category.includes(c.category.toLowerCase()) || category.length == 0)
-      filter.push(c.category.toLowerCase());
+    contains.forEach((cn) => {
+      if (category.includes(cn.toLowerCase()) || category.length == 0)
+        filter.push(cn.toLowerCase());
+    });
 
     const intersection = arrayEquals(contains, filter);
 
@@ -47,4 +49,4 @@ const FilteredWines = ({ posts }: IPosts) => {
   );
 };
 
-export default FilteredWines;
+export default FilteredPosts;

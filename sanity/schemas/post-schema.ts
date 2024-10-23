@@ -51,7 +51,7 @@ const post = {
       options: {
         list: [
           { title: "Food", value: "food" },
-          { title: "Wine", value: "wine" },
+          { title: "Wine", value: "wines" },
           { title: "Drink", value: "drinks" },
         ],
       },
