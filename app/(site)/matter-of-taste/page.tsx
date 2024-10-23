@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { Suspense } from "react";
 import { ArrowRight } from "@/public/icons/arrow-right";
-import Card from "@/components/card";
 import SearchFilterPosts from "@/components/search-filter-posts/search-filter-posts";
 import FilteredPosts from "@/components/filtered-posts";
 
