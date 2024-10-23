@@ -47,12 +47,14 @@ const post = {
       name: "category",
       title: "Category",
       type: "array",
-      of: [{ title: "string", value: "string" }],
-      list: [
-        { title: "Food", value: "food" },
-        { title: "Wine", value: "wine" },
-        { title: "Drink", value: "drinks" },
-      ],
+      of: [{ type: "string" }],
+      options: {
+        list: [
+          { title: "Food", value: "food" },
+          { title: "Wine", value: "wine" },
+          { title: "Drink", value: "drinks" },
+        ],
+      },
     },
   ],
 };
