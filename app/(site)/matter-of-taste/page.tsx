@@ -2,7 +2,7 @@ import { getPage, getPosts } from "@/sanity/sanity-utils";
 import { PortableText } from "next-sanity";
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import React, { Suspense } from "react";
 import { ArrowRight } from "@/public/icons/arrow-right";
 import Card from "@/components/card";
 import SearchFilterPosts from "@/components/search-filter-posts/search-filter-posts";
@@ -79,8 +79,10 @@ export default async function Page() {
       </section>
 
       <section className="mt-10">
-        <SearchFilterPosts />
-        <FilteredPosts posts={posts} />
+        <Suspense>
+          <SearchFilterPosts />
+          <FilteredPosts posts={posts} />
+        </Suspense>
       </section>
     </div>
   );
