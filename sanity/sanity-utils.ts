@@ -54,6 +54,8 @@ export async function getDrinks(): Promise<Drink[]> {
       strength,
       spirit,
       amount_ingredients,
+      recommended,
+      rating,
     }`,
   );
 }
@@ -86,7 +88,10 @@ export async function getDrink(slug: string): Promise<Drink> {
           strength, 
           taste, 
           amount_ingredients, 
-        },
+        }, 
+    recommended,
+    rating,
+    recommendation,
     }`,
     { slug },
   );
@@ -104,6 +109,8 @@ export async function getWines(): Promise<Wines[]> {
             type,
             region,
             vintage,
+            recommended,
+            rating,   
         }`,
   );
 }
@@ -131,7 +138,10 @@ export async function getWine(slug: string): Promise<Wines> {
                   type,
                   region,
                   vintage,
-                }
+                },
+                recommended,
+                rating,
+                recommendation,
             }`,
     { slug },
   );
@@ -151,8 +161,8 @@ export async function getFoods(): Promise<Food[]> {
             characteristics,
             mainIngredient,
             category,
-            rating,
             recommended,
+            rating,
         }`,
   );
 }
@@ -182,14 +192,14 @@ export async function getFood(slug: string): Promise<Food> {
                   characteristics,
                   cuisine,
                   category,
-                  rating,
                   recommended,
+                  rating,
                 },
                 time,
                 characteristics,
                 mainIngredient,
-                rating,
                 recommended,
+                rating,
                 recommendation,
             }`,
     { slug },

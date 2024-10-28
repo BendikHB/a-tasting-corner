@@ -18,4 +18,7 @@ export type Drink = {
   season: string;
   amount_ingredients: string;
   strength: string;
+  recommended: boolean;
+  rating: string;
+  recommendation: PortableTextBlock[];
 };

@@ -13,4 +13,7 @@ export type Wines = {
   region: string;
   vintage: string;
   similar: Wines[];
+  recommended: boolean;
+  rating: string;
+  recommendation: PortableTextBlock[];
 };

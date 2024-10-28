@@ -1,15 +1,17 @@
-import { getPage, getPosts } from "@/sanity/sanity-utils";
+import { getDrinks, getFoods, getPage, getWines } from "@/sanity/sanity-utils";
 import { PortableText } from "next-sanity";
 import Link from "next/link";
 import Image from "next/image";
 import React, { Suspense } from "react";
 import { ArrowRight } from "@/public/icons/arrow-right";
-import SearchFilterPosts from "@/components/search-filter-posts/search-filter-posts";
-import FilteredPosts from "@/components/filtered-posts";
+import FilteredRecommendations from "@/components/filtered-recommendations";
+import SearchFilterRecommendations from "@/components/search-filter-recommendations/search-filter-posts";
 
 export default async function Page() {
-  const page = await getPage("matter-of-taste");
-  const posts = await getPosts();
+  const page = await getPage("recommendations");
+  const drinks = await getDrinks();
+  const wines = await getWines();
+  const food = await getFoods();
 
   const {
     image,
@@ -23,6 +25,8 @@ export default async function Page() {
     name,
     intro,
   } = page;
+
+  console.log(food);
 
   return (
     <div className="mx-auto">
@@ -79,8 +83,8 @@ export default async function Page() {
 
       <section className="mt-10">
         <Suspense>
-          <SearchFilterPosts />
-          <FilteredPosts posts={posts} />
+          <SearchFilterRecommendations />
+          <FilteredRecommendations drinks={drinks} food={food} wines={wines} />
         </Suspense>
       </section>
     </div>

@@ -132,6 +132,22 @@ const food = {
         ],
       },
     },
+    {
+      name: "recommended",
+      title: "Recommended",
+      type: "boolean",
+    },
+    {
+      name: "rating",
+      title: "Rating",
+      type: "string",
+    },
+    {
+      name: "recommendation",
+      title: "Recommendation",
+      type: "array",
+      of: [{ type: "block" }],
+    },
   ],
 };
 
