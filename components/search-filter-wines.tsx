@@ -134,7 +134,6 @@ const SearchFilterWines = () => {
       input.removeEventListener(
         "keyup",
         function (event) {
-          console.log("removing event listener");
           if (event.key === "Enter") {
             event.preventDefault();
             search();

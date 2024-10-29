@@ -26,8 +26,6 @@ export default async function Page() {
     intro,
   } = page;
 
-  console.log(food);
-
   return (
     <div className="mx-auto">
       <section className="flex gap-5 p-5 bg-black h-[50vh]">
