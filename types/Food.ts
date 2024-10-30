@@ -17,7 +17,6 @@ export type Food = {
   mainIngredient: string;
   cuisine: string;
   time: string;
-  category: string[];
   recommended: boolean;
   rating: string;
   recommendation: PortableTextBlock[];

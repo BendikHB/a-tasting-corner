@@ -1,7 +1,6 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import DrinkCard from "./drink-card";
 import { arrayEquals } from "@/utils/arrayEquals";
 import { Food } from "@/types/Food";
 import FoodCard from "./food-card";
@@ -18,8 +17,10 @@ const FilteredFood = ({ food }: IFood) => {
     ? //@ts-ignore
       params.get("foodType").split(" ")
     : [];
-  //@ts-ignore
-  const taste = params.get("taste") ? params.get("taste").split(" ") : [];
+
+  // const characteristics = params.get("characteristics")
+  //   ? params.get("characteristics").split(" ")
+  //   : [];
   const mainIngredient = params.get("mainIngredient")
     ? //@ts-ignore
       params.get("mainIngredient").split(" ")
@@ -33,7 +34,7 @@ const FilteredFood = ({ food }: IFood) => {
   food.forEach((c) => {
     const contains = [
       c.type.toLowerCase(),
-      c.taste.toLowerCase(),
+      // c.characteristics.toLowerCase(),
       c.mainIngredient.toLowerCase(),
       c.cuisine.toLowerCase(),
     ];
@@ -41,8 +42,11 @@ const FilteredFood = ({ food }: IFood) => {
 
     if (foodType.includes(c.type.toLowerCase()) || foodType.length == 0)
       filter.push(c.type.toLowerCase());
-    if (taste.includes(c.taste.toLowerCase()) || taste.length == 0)
-      filter.push(c.taste.toLowerCase());
+    // if (
+    //   characteristics.includes(c.characteristics.toLowerCase()) ||
+    //   characteristics.length == 0
+    // )
+    //   filter.push(c.characteristics.toLowerCase());
     if (
       mainIngredient.includes(c.mainIngredient.toLowerCase()) ||
       mainIngredient.length == 0

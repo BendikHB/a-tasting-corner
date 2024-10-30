@@ -53,7 +53,8 @@ const food = {
     {
       name: "characteristics",
       title: "Characteristics",
-      type: "string",
+      type: "array",
+      of: [{ type: "string" }],
       options: {
         list: [
           { title: "Sweet", value: "Sweet" },
@@ -69,11 +70,12 @@ const food = {
       type: "string",
       options: {
         list: [
-          { title: "Vodka", value: "Vodka" },
-          { title: "Tequila", value: "Tequila" },
-          { title: "Gin", value: "Gin" },
-          { title: "Rum", value: "Rum" },
-          { title: "Whiskey", value: "Whiskey" },
+          { title: "Appatizerz", value: "Appatizerz" },
+          { title: "Main", value: "Main" },
+          { title: "Side", value: "Side" },
+          { title: "Salads", value: "Salads" },
+          { title: "Sauces", value: "Sauces" },
+          { title: "Desserts", value: "Desserts" },
         ],
       },
     },
@@ -118,19 +120,6 @@ const food = {
       name: "time",
       title: "Time",
       type: "string",
-    },
-    {
-      name: "category",
-      title: "Category",
-      type: "array",
-      of: [{ type: "string" }],
-      options: {
-        list: [
-          { title: "Fish", value: "fish" },
-          { title: "Shellfish", value: "shellfish" },
-          { title: "Duck", value: "duck" },
-        ],
-      },
     },
     {
       name: "recommended",

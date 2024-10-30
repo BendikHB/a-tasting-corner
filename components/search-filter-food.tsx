@@ -15,7 +15,7 @@ interface IFilter {
 
 const SearchFilterFood = () => {
   const [foodType, setfoodType] = useState("");
-  const [taste, settaste] = useState("");
+  const [characteristics, setcharacteristics] = useState("");
   const [cuisine, setcuisine] = useState("");
   const [mainIngredient, setmainIngredient] = useState("");
 
@@ -25,7 +25,7 @@ const SearchFilterFood = () => {
   function setFilter(obj: IFilter) {
     let filter = null;
     let foodTypeString = foodType;
-    let tasteString = taste;
+    let characteristicsString = characteristics;
     let cuisineString = cuisine;
     let mainIngredientString = mainIngredient;
     const searchString = params.get("search");
@@ -39,13 +39,13 @@ const SearchFilterFood = () => {
         setfoodType(foodTypeString);
       }
     }
-    if (!taste.includes(obj.tag) && obj.type === "taste") {
-      if (tasteString) {
-        tasteString = tasteString + "+" + obj.tag;
-        settaste(tasteString);
+    if (!characteristics.includes(obj.tag) && obj.type === "characteristics") {
+      if (characteristicsString) {
+        characteristicsString = characteristicsString + "+" + obj.tag;
+        setcharacteristics(characteristicsString);
       } else {
-        tasteString = obj.tag;
-        settaste(tasteString);
+        characteristicsString = obj.tag;
+        setcharacteristics(characteristicsString);
       }
     }
     if (!cuisine.includes(obj.tag) && obj.type === "cuisine") {
@@ -75,13 +75,15 @@ const SearchFilterFood = () => {
           foodTypeString = foodTypeString.substring(1);
         setfoodType(foodTypeString);
       }
-      if (tasteString.includes(obj.tag)) {
-        tasteString = tasteString.replace(obj.tag, "");
-        if (tasteString.charAt(tasteString.length - 1) === "+")
-          tasteString = tasteString.replace(/.$/, "");
-        if (tasteString.charAt(0) === "+")
-          tasteString = tasteString.substring(1);
-        settaste(tasteString);
+      if (characteristicsString.includes(obj.tag)) {
+        characteristicsString = characteristicsString.replace(obj.tag, "");
+        if (
+          characteristicsString.charAt(characteristicsString.length - 1) === "+"
+        )
+          characteristicsString = characteristicsString.replace(/.$/, "");
+        if (characteristicsString.charAt(0) === "+")
+          characteristicsString = characteristicsString.substring(1);
+        setcharacteristics(characteristicsString);
       }
       if (cuisineString.includes(obj.tag)) {
         cuisineString = cuisineString.replace(obj.tag, "");
@@ -104,7 +106,8 @@ const SearchFilterFood = () => {
     }
 
     if (foodTypeString) foodTypeString = "foodType=" + foodTypeString;
-    if (tasteString) tasteString = "taste=" + tasteString;
+    if (characteristicsString)
+      characteristicsString = "characteristics=" + characteristicsString;
     if (cuisineString) cuisineString = "cuisine=" + cuisineString;
     if (mainIngredientString)
       mainIngredientString = "ingredient=" + mainIngredientString;
@@ -112,7 +115,7 @@ const SearchFilterFood = () => {
     filter =
       foodTypeString +
       "&" +
-      tasteString +
+      characteristicsString +
       "&" +
       cuisineString +
       "&" +
@@ -233,22 +236,49 @@ const SearchFilterFood = () => {
   }
 
   let domNode = HandleClickOutside(() => {
-    dropDown(false, undefined, ["food-type", "taste", "ingredient", "cuisine"]);
+    dropDown(false, undefined, [
+      "food-type",
+      "characteristics",
+      "ingredient",
+      "cuisine",
+    ]);
     setDropcuisine(false);
     setDropingredient(false);
-    setDroptaste(false);
+    setDropcharacteristics(false);
     setDropBase(false);
   });
 
   const [dropBase, setDropBase] = useState(false);
-  const [droptaste, setDroptaste] = useState(false);
+  const [dropcharacteristics, setDropcharacteristics] = useState(false);
   const [dropingredient, setDropingredient] = useState(false);
   const [dropcuisine, setDropcuisine] = useState(false);
 
-  const foodTypeOptions = ["gin", "vodka", "rum", "tequila", "whiskey"];
-  const tasteOptions = ["sweet", "bitter", "sour", "fruity", "savory"];
-  const ingredientOptions = ["high", "medium", "low", "no"];
-  const cuisineOptions = ["2", "3", "4", "5", "6", "0"];
+  const foodTypeOptions = [
+    "appatizerz",
+    "main",
+    "side",
+    "salads",
+    "sauces",
+    "desserts",
+  ];
+  const characteristicsOptions = ["sweet", "sour", "fruity", "savory"];
+  const ingredientOptions = [
+    "fish",
+    "shellfish",
+    "bird",
+    "game",
+    "beef",
+    "vegetarian",
+  ];
+  const cuisineOptions = [
+    "gourmet",
+    "traditional",
+    "french",
+    "italian",
+    "indian",
+    "japanese",
+    "mediterranean",
+  ];
 
   return (
     <div className="flex gap-3 py-2 flex-wrap justify-center" ref={domNode}>
@@ -300,27 +330,30 @@ const SearchFilterFood = () => {
           <button
             className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
             onClick={() => {
-              dropDown(!droptaste, "taste");
-              setDroptaste(!droptaste);
+              dropDown(!dropcharacteristics, "characteristics");
+              setDropcharacteristics(!dropcharacteristics);
             }}
           >
-            Taste
+            Characteristics
           </button>
         </div>
         <div
-          id="taste"
+          id="characteristics"
           className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
         >
-          {tasteOptions.map((c) => {
+          {characteristicsOptions.map((c) => {
             return (
-              <div className="flex items-center mb-4" key={c + " taste"}>
+              <div
+                className="flex items-center mb-4"
+                key={c + " characteristics"}
+              >
                 <input
                   id={c + "-checkbox"}
                   type="checkbox"
                   value=""
                   onClick={() => {
                     setFilter({
-                      type: "taste",
+                      type: "characteristics",
                       tag: c,
                       active: checked(c + "-checkbox"),
                     });
