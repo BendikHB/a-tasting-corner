@@ -17,12 +17,12 @@ export default async function Wine({ params }: Props) {
       <section className="w-full">
         <div className="h-[600px]">
           <div className="h-full w-full relative">
-            {wine?.image && (
+            {wine?.background && (
               <Image
-                src={wine.image}
-                alt={wine.alt}
+                src={wine.background}
+                alt={wine.bgAlt}
                 fill
-                style={{ objectFit: "contain" }}
+                style={{ objectFit: "cover" }}
                 priority
               />
             )}
@@ -49,7 +49,7 @@ export default async function Wine({ params }: Props) {
           </div>
           <div>
             <h3 className="font-medium">Score</h3>
-            <p className="text-xl">{wine.type}</p>
+            <p className="text-xl">{wine.rating}</p>
           </div>
         </div>
         <div className="mt-4">

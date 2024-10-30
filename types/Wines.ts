@@ -7,6 +7,8 @@ export type Wines = {
   slug: string;
   image: string;
   alt: string;
+  background: string;
+  bgAlt: string;
   url: string;
   content: PortableTextBlock[];
   type: string;

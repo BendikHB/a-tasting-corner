@@ -28,6 +28,19 @@ const wine = {
       ],
     },
     {
+      name: "background",
+      title: "Background",
+      type: "image",
+      options: { hotspot: true },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt",
+          type: "string",
+        },
+      ],
+    },
+    {
       name: "url",
       title: "Url",
       type: "url",
