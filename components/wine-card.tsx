@@ -35,10 +35,12 @@ const WineCard = ({ data, basePath }: IDrinkCard) => {
               <p className="font-medium">Region:</p>
               <p>{region}</p>
             </div>
-            <div>
-              <p className="font-medium">Vintage:</p>
-              <p>{vintage}</p>
-            </div>
+            {vintage && (
+              <div>
+                <p className="font-medium">Vintage:</p>
+                <p>{vintage}</p>
+              </div>
+            )}
           </div>
           <div className="hidden md:block pb-[3px]">
             <ArrowRight width={38} height={8} color="#000" />

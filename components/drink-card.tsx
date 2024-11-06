@@ -73,10 +73,12 @@ const DrinkCard = ({ data, basePath }: IDrinkCard) => {
               <p className="font-medium">Taste:</p>
               <p>{taste}</p>
             </div>
-            <div>
-              <p className="font-medium">Alcohol:</p>
-              <p>{strengthString}</p>
-            </div>
+            {strengthString && (
+              <div>
+                <p className="font-medium">Alcohol:</p>
+                <p>{strengthString}</p>
+              </div>
+            )}
           </div>
           <div className="hidden md:block pb-[3px]">
             <ArrowRight width={38} height={8} color="#000" />

@@ -24,19 +24,19 @@ const FilteredWines = ({ wines }: IWines) => {
 
   const filtered: Wines[] = [];
   wines.forEach((c) => {
-    const contains = [
-      c.type.toLowerCase(),
-      c.region.toLowerCase(),
-      c.vintage.toLowerCase(),
-    ];
+    const currentType = c.type ? c.type.toLowerCase() : "";
+    const currentRegion = c.region ? c.region.toLowerCase() : "";
+    const currentVintage = c.vintage ? c.vintage.toLowerCase() : "";
+    const contains = [currentType, currentRegion, currentVintage];
+
     const filter: string[] = [];
 
-    if (type.includes(c.type.toLowerCase()) || type.length == 0)
-      filter.push(c.type.toLowerCase());
-    if (region.includes(c.region.toLowerCase()) || region.length == 0)
-      filter.push(c.region.toLowerCase());
-    if (vintage.includes(c.vintage.toLowerCase()) || vintage.length == 0)
-      filter.push(c.vintage.toLowerCase());
+    if (type.includes(currentType) || type.length == 0)
+      filter.push(currentType);
+    if (region.includes(currentRegion) || region.length == 0)
+      filter.push(currentRegion);
+    if (vintage.includes(currentVintage) || vintage.length == 0)
+      filter.push(currentVintage);
 
     const intersection = arrayEquals(contains, filter);
 
