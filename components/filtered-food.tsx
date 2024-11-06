@@ -18,12 +18,13 @@ const FilteredFood = ({ food }: IFood) => {
       params.get("foodType").split(" ")
     : [];
 
-  // const characteristics = params.get("characteristics")
-  //   ? params.get("characteristics").split(" ")
-  //   : [];
-  const mainIngredient = params.get("mainIngredient")
+  const characteristics = params.get("characteristics")
     ? //@ts-ignore
-      params.get("mainIngredient").split(" ")
+      params.get("characteristics").split(" ")
+    : [];
+  const mainIngredient = params.get("ingredient")
+    ? //@ts-ignore
+      params.get("ingredient").split(" ")
     : [];
   const cuisine = params.get("cuisine")
     ? //@ts-ignore
@@ -34,7 +35,6 @@ const FilteredFood = ({ food }: IFood) => {
   food.forEach((c) => {
     const contains = [
       c.type.toLowerCase(),
-      // c.characteristics.toLowerCase(),
       c.mainIngredient.toLowerCase(),
       c.cuisine.toLowerCase(),
     ];
@@ -42,11 +42,6 @@ const FilteredFood = ({ food }: IFood) => {
 
     if (foodType.includes(c.type.toLowerCase()) || foodType.length == 0)
       filter.push(c.type.toLowerCase());
-    // if (
-    //   characteristics.includes(c.characteristics.toLowerCase()) ||
-    //   characteristics.length == 0
-    // )
-    //   filter.push(c.characteristics.toLowerCase());
     if (
       mainIngredient.includes(c.mainIngredient.toLowerCase()) ||
       mainIngredient.length == 0
@@ -54,6 +49,16 @@ const FilteredFood = ({ food }: IFood) => {
       filter.push(c.mainIngredient.toLowerCase());
     if (cuisine.includes(c.cuisine.toLowerCase()) || cuisine.length == 0)
       filter.push(c.cuisine.toLowerCase());
+
+    c.characteristics.forEach((cn) => {
+      if (characteristics.includes(cn.toLowerCase())) {
+        filter.push(cn.toLowerCase());
+        contains.push(cn.toLowerCase());
+        console.log("inside?");
+      } else if (characteristics.length) {
+        filter.push(characteristics[0]);
+      }
+    });
 
     const intersection = arrayEquals(contains, filter);
 
