@@ -21,8 +21,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const pages = await getPages();
-  const menu = ["about", "beverages", "matter of taste"];
-  const drinksMenu = ["drinks", "wines"];
+  const menu = ["beverages", "matter of taste", "about"];
+  const drinksMenu = ["drinks", "wines", "non alcoholic"];
   const sortedMenu: menu[] = [];
 
   pages.forEach((page) => {
@@ -38,6 +38,11 @@ export default async function RootLayout({
       sortedMenu.push({ main: page });
     }
   });
+  sortedMenu.sort(
+    (a, b) =>
+      menu.indexOf(a.main.name.toLowerCase()) -
+      menu.indexOf(b.main.name.toLowerCase()),
+  );
 
   return (
     <html lang="en">
