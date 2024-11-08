@@ -29,11 +29,13 @@ export default async function Wine({ params }: Props) {
           </div>
         </div>
         <div className="bg-light">
-          <h1 className="text-5xl py-10 ml-[10%]">{wine.name}</h1>
+          <h1 className="text-4xl md:text-5xl py-10 text-center md:text-left md:ml-[10%]">
+            {wine.name}
+          </h1>
         </div>
       </section>
       <section className="my-16 pl-[10%] mx-auto">
-        <div className="flex gap-8">
+        <div className="flex gap-8 flex-col md:flex-row">
           <div>
             <Image src={wine.image} alt={wine.alt} width={100} height={300} />
           </div>
