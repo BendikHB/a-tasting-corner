@@ -251,7 +251,7 @@ const SearchFilterDrinks = () => {
 
   const baseSpiritOptions = ["gin", "vodka", "rum", "tequila", "whiskey"];
   const tasteOptions = ["sweet", "bitter", "sour", "fruity", "savory"];
-  const strengthOptions = ["high", "medium", "low", "no"];
+  const strengthOptions = ["high", "medium", "low"];
   const amountOptions = ["2", "3", "4", "5", "6", "0"];
 
   return (
@@ -359,7 +359,6 @@ const SearchFilterDrinks = () => {
           className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
         >
           {strengthOptions.map((c) => {
-            const prettyName = c === "no" ? "Non-alcoholic" : c;
             return (
               <div className="flex items-center mb-4" key={c + " strength"}>
                 <input
@@ -379,7 +378,7 @@ const SearchFilterDrinks = () => {
                   htmlFor={c + "-checkbox"}
                   className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
                 >
-                  {prettyName}
+                  {c}
                 </label>
               </div>
             );

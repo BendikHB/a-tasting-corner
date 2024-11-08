@@ -28,6 +28,7 @@ const FilteredDrinks = ({ drinks }: IDrinks) => {
 
   const filtered: Drink[] = [];
   drinks.forEach((c) => {
+    if (c.strength === "no") return;
     const contains = [
       c.spirit.toLowerCase(),
       c.taste.toLowerCase(),
