@@ -33,7 +33,7 @@ export default async function Home() {
 
   return (
     <div className="mx-auto">
-      <section className="flex gap-5 p-5">
+      <section className="flex justify-center items-center gap-5 p-5">
         {image && (
           <Link href={url} className="relative max-w-1/2 cursor-pointer">
             <Image src={image} alt={alt} width={1080} height={1080} />

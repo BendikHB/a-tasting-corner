@@ -34,7 +34,7 @@ export default async function Drink({ params }: Props) {
             </div>
           </div>
         </div>
-        <div className="bg-light pl[10%]">
+        <div className="bg-light pl[10%] max-w-7xl mx-auto">
           <h1 className="text-5xl py-10 ml-[10%]">{drink.name}</h1>
         </div>
       </section>
