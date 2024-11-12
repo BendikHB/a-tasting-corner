@@ -214,8 +214,30 @@ const SearchFilterWines = () => {
   const [DropVintage, setDropVintage] = useState(false);
 
   const typeOptions = ["red", "white", "rose", "sparkling", "port"];
-  const regionOptions = ["new world", "old world", "france", "italy", "usa"];
-  const vintageOptions = ["2020", "3", "4", "5", "6", "0"];
+  const regionOptions = [
+    "new-world",
+    "old-world",
+    "france",
+    "italy",
+    "usa",
+    "south-africa",
+  ];
+  const vintageOptions = [
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+  ];
 
   return (
     <div className="flex gap-3 py-2 flex-wrap justify-center" ref={domNode}>
@@ -279,6 +301,7 @@ const SearchFilterWines = () => {
           className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
         >
           {regionOptions.map((c) => {
+            const prettyName = c.replace("-", " ");
             return (
               <div className="flex items-center mb-4" key={c + " region"}>
                 <input
@@ -298,7 +321,7 @@ const SearchFilterWines = () => {
                   htmlFor={c + "-checkbox"}
                   className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
                 >
-                  {c}
+                  {prettyName}
                 </label>
               </div>
             );
@@ -324,26 +347,11 @@ const SearchFilterWines = () => {
           {vintageOptions.map((c) => {
             let prettyName;
             switch (c) {
-              case "2":
-                prettyName = "two";
-                break;
-              case "3":
-                prettyName = "three";
-                break;
-              case "4":
-                prettyName = "four";
-                break;
-              case "5":
-                prettyName = "five";
-                break;
-              case "6":
-                prettyName = "six";
-                break;
-              case "0":
-                prettyName = "Over six";
+              case c:
+                prettyName = c;
                 break;
               default:
-                prettyName = "default";
+                prettyName = "no vintage";
                 break;
             }
 

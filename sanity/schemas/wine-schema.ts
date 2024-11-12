@@ -77,10 +77,12 @@ const wine = {
       type: "string",
       options: {
         list: [
-          { title: "New World", value: "New world" },
-          { title: "Old World", value: "Old world" },
+          { title: "New World", value: "new-world" },
+          { title: "Old World", value: "old-world" },
           { title: "France", value: "France" },
           { title: "Italy", value: "Italy" },
+          { title: "Usa", value: "Usa" },
+          { title: "South Africa", value: "south-africa" },
         ],
       },
     },
