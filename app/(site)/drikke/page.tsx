@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function Page() {
-  const page = await getPage("beverages");
+  const page = await getPage("drikke");
 
   const {
     image,

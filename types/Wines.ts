@@ -9,6 +9,8 @@ export type Wines = {
   alt: string;
   background: string;
   bgAlt: string;
+  bottle: string;
+  bottleAlt: string;
   url: string;
   content: PortableTextBlock[];
   type: string;

@@ -28,6 +28,19 @@ const wine = {
       ],
     },
     {
+      name: "bottle",
+      title: "Bottle",
+      type: "image",
+      options: { hotspot: true },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt",
+          type: "string",
+        },
+      ],
+    },
+    {
       name: "background",
       title: "Background",
       type: "image",
@@ -77,12 +90,12 @@ const wine = {
       type: "string",
       options: {
         list: [
-          { title: "New World", value: "new-world" },
-          { title: "Old World", value: "old-world" },
           { title: "France", value: "France" },
           { title: "Italy", value: "Italy" },
           { title: "Usa", value: "Usa" },
           { title: "South Africa", value: "south-africa" },
+          { title: "Aregentina", value: "argentina" },
+          { title: "Australia", value: "australia" },
         ],
       },
     },

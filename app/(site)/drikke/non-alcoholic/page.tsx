@@ -4,11 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "@/public/icons/arrow-right";
 import { PortableText } from "next-sanity";
-import SearchFilterDrinks from "@/components/search-filter-drinks";
-import FilteredDrinks from "@/components/filtered-drinks";
+import FilteredNonAlc from "@/components/filtered-non-alc";
+import SearchFilterNonAlc from "@/components/search-filter-non-alc";
 
 export default async function Page() {
-  const page = await getPage("drinks");
+  const page = await getPage("uten-alkohol");
   const drinks = await getDrinks();
 
   const { image, alt, url, linkText, heading, intro } = page;
@@ -48,8 +48,8 @@ export default async function Page() {
       </section>
       <section className="flex flex-col items-center mx-auto pt-16 px-5 md:px-10">
         <Suspense>
-          <SearchFilterDrinks />
-          {drinks && <FilteredDrinks drinks={drinks} />}
+          <SearchFilterNonAlc />
+          {drinks && <FilteredNonAlc drinks={drinks} />}
         </Suspense>
       </section>
     </div>

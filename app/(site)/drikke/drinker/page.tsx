@@ -6,11 +6,9 @@ import { ArrowRight } from "@/public/icons/arrow-right";
 import { PortableText } from "next-sanity";
 import SearchFilterDrinks from "@/components/search-filter-drinks";
 import FilteredDrinks from "@/components/filtered-drinks";
-import FilteredNonAlc from "@/components/filtered-non-alc";
-import SearchFilterNonAlc from "@/components/search-filter-non-alc";
 
 export default async function Page() {
-  const page = await getPage("non-alcoholic");
+  const page = await getPage("drinker");
   const drinks = await getDrinks();
 
   const { image, alt, url, linkText, heading, intro } = page;
@@ -50,8 +48,8 @@ export default async function Page() {
       </section>
       <section className="flex flex-col items-center mx-auto pt-16 px-5 md:px-10">
         <Suspense>
-          <SearchFilterNonAlc />
-          {drinks && <FilteredNonAlc drinks={drinks} />}
+          <SearchFilterDrinks />
+          {drinks && <FilteredDrinks drinks={drinks} />}
         </Suspense>
       </section>
     </div>

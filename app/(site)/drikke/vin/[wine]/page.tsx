@@ -1,7 +1,9 @@
 import WineCard from "@/components/wine-card";
+import { ArrowRight } from "@/public/icons/arrow-right";
 import { getWine } from "@/sanity/sanity-utils";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 type Props = {
@@ -28,31 +30,48 @@ export default async function Wine({ params }: Props) {
             )}
           </div>
         </div>
-        <div className="bg-light max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-5xl py-10 text-center md:text-left md:ml-[10%]">
+        <div className="bg-light max-w-7xl mx-auto flex justify-between items-center md:px-[5%]">
+          <h1 className="text-4xl md:text-5xl py-10 text-center md:text-left ">
             {wine.name}
           </h1>
+          {wine.url && (
+            <Link href={wine.url}>
+              <div className="px-6 md:px-8  py-4 md:py-6 bg-black ">
+                <div className={`text-white text-xl md:text-xl flex items-end`}>
+                  kjøp på vinmonopolet
+                  <div className="pb-2 pl-3">
+                    <ArrowRight width={38} height={8} color={"#FFF"} />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          )}
         </div>
       </section>
       <section className="my-16 pl-[10%] max-w-7xl mx-auto">
         <div className="flex gap-8 flex-col md:flex-row">
           <div>
-            <Image src={wine.image} alt={wine.alt} width={100} height={300} />
+            <Image
+              src={wine.bottle}
+              alt={wine.bottleAlt}
+              width={100}
+              height={300}
+            />
           </div>
           <div className="pt-4">
-            {wine.recommended && <p>We recommend this wine</p>}
-            <h2 className="text-3xl">About this wine:</h2>
+            {wine.recommended && <p>Vi anbefaler denne vinen</p>}
+            <h2 className="text-3xl">Kort om vinen:</h2>
             <div className="flex text-center gap-12 mt-8">
               <div>
                 <h3 className="font-medium">Type</h3>
                 <p className="text-xl">{wine.type}</p>
               </div>
               <div>
-                <h3 className="font-medium">Region</h3>
+                <h3 className="font-medium">Land</h3>
                 <p className="text-xl">{wine.region}</p>
               </div>
               <div>
-                <h3 className="font-medium">Vintage</h3>
+                <h3 className="font-medium">Årgang</h3>
                 <p className="text-xl">{wine.vintage}</p>
               </div>
               <div>
@@ -64,7 +83,9 @@ export default async function Wine({ params }: Props) {
               <PortableText value={wine.content} />
               {wine.recommendation && (
                 <div className="mt-4">
-                  <h3 className="font-semibold">Why we recommend this wine</h3>
+                  <h3 className="font-semibold">
+                    Hvorfor vi vil anbefale denne vinen
+                  </h3>
                   <PortableText value={wine.recommendation} />
                 </div>
               )}
@@ -76,12 +97,12 @@ export default async function Wine({ params }: Props) {
       <section className="mb-16 mt-2 pl-[10%] max-w-7xl mx-auto">
         <div className="w-16 border-t-2"></div>
         <div className="flex">
-          <h2 className="text-3xl mt-3">Similar options:</h2>
+          <h2 className="text-3xl mt-3">Lignende viner</h2>
           {wine.similar && (
             <div className="flex gap-6 pt-6">
               {wine.similar.map((d) => {
                 return (
-                  <WineCard key={d._id} data={d} basePath="/beverages/wines/" />
+                  <WineCard key={d._id} data={d} basePath="/drikke/vin/" />
                 );
               })}
             </div>

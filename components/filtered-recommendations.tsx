@@ -103,21 +103,21 @@ const FilteredRecommendations = ({ drinks, wines, food }: IRecommendation) => {
                 key={c.drink?._id}
                 className="basis-[46%] md:basis-auto flex"
               >
-                <DrinkCard data={c.drink} basePath={"/beverages/drinks/"} />
+                <DrinkCard data={c.drink} basePath={"/drikke/drinker/"} />
               </div>
             );
           }
           if (c.wine) {
             return (
               <div key={c.wine?._id} className="basis-[46%] md:basis-auto flex">
-                <WineCard data={c.wine} basePath={"/beverages/wines/"} />
+                <WineCard data={c.wine} basePath={"/drikke/vin/"} />
               </div>
             );
           }
           if (c.food) {
             return (
               <div key={c.food._id} className="basis-[46%] md:basis-auto flex">
-                <FoodCard data={c.food} basePath={"/food/"} />
+                <FoodCard data={c.food} basePath={"/mat/"} />
               </div>
             );
           }

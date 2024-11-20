@@ -91,7 +91,7 @@ const SearchFilterNonAlc = () => {
     if (!filter && searchString) {
       router.push("?search=" + searchString);
     } else if (!filter) {
-      router.push("/beverages/non-alcoholic");
+      router.push("/drikke/uten-alkohol");
     }
   }
 
@@ -173,7 +173,7 @@ const SearchFilterNonAlc = () => {
         router.push(slug);
       }
     } else {
-      router.push("/beverages/non-alcoholic");
+      router.push("/drikke/uten-alkohol");
     }
   }
 

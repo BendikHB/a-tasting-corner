@@ -126,6 +126,8 @@ export async function getWine(slug: string): Promise<Wines> {
                 "alt": image.alt,
                 "background": background.asset->url,
                 "bgAlt": background.alt,
+                "bottle": bottle.asset->url,
+                "bottleAlt": bottle.alt,
                 url,
                 content,
                 type,

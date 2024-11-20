@@ -75,11 +75,7 @@ export default async function Drink({ params }: Props) {
             <div className="flex gap-6 pt-6">
               {drink.similar.map((d) => {
                 return (
-                  <DrinkCard
-                    key={d._id}
-                    data={d}
-                    basePath="/beverages/drinks/"
-                  />
+                  <DrinkCard key={d._id} data={d} basePath="/drikke/drinker/" />
                 );
               })}
             </div>

@@ -8,7 +8,7 @@ import SearchFilterPosts from "@/components/search-filter-posts/search-filter-po
 import FilteredPosts from "@/components/filtered-posts";
 
 export default async function Page() {
-  const page = await getPage("matter-of-taste");
+  const page = await getPage("smak-og-behag");
   const posts = await getPosts();
 
   const {

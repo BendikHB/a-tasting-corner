@@ -21,13 +21,13 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const pages = await getPages();
-  const menu = ["beverages", "matter of taste", "about"];
-  const drinksMenu = ["drinks", "wines", "non alcoholic"];
+  const menu = ["drikke", "mat", "smak og behag", "anbefalinger", "om oss"];
+  const drinksMenu = ["drinker", "vin", "uten alkohol"];
   const sortedMenu: menu[] = [];
 
   pages.forEach((page) => {
     const subMenu: Page[] = [];
-    if (page.name.toLowerCase() === "beverages") {
+    if (page.name.toLowerCase() === "drikke") {
       pages.forEach((c) => {
         if (drinksMenu.includes(c.name.toLowerCase())) subMenu.push(c);
       });
@@ -74,7 +74,7 @@ export default async function RootLayout({
                   sortedMenu.map((page) => {
                     const { main, subList } = page;
                     return (
-                      <div key={main._id}>
+                      <div key={main._id} className="flex-col flex items-end">
                         <Link
                           className="border-b border-b-transparent hover:border-b-white transition-all duration-100"
                           href={`/${main.slug}`}

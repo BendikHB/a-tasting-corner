@@ -8,7 +8,7 @@ import SearchFilterWines from "@/components/search-filter-wines";
 import FilteredWines from "@/components/filtered-wines";
 
 export default async function Page() {
-  const page = await getPage("wines");
+  const page = await getPage("vin");
   const wines = await getWines();
   const { image, alt, url, linkText, heading, intro } = page;
 
@@ -32,12 +32,12 @@ export default async function Page() {
             />
             {url && (
               <div className="px-12 py-8 bg-black absolute bottom-0 left-0">
-                <button className={`text-white text-3xl flex items-end`}>
+                <a className={`text-white text-3xl flex items-end`}>
                   {linkText}
                   <div className="pb-2 pl-3">
                     <ArrowRight width={48} height={10} color={"#FFF"} />
                   </div>
-                </button>
+                </a>
               </div>
             )}
           </Link>

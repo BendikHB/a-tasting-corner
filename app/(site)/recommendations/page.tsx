@@ -8,7 +8,7 @@ import FilteredRecommendations from "@/components/filtered-recommendations";
 import SearchFilterRecommendations from "@/components/search-filter-recommendations/search-filter-posts";
 
 export default async function Page() {
-  const page = await getPage("recommendations");
+  const page = await getPage("anbefalinger");
   const drinks = await getDrinks();
   const wines = await getWines();
   const food = await getFoods();

@@ -141,7 +141,7 @@ const SearchFilterDrinks = () => {
     if (!filter && searchString) {
       router.push("?search=" + searchString);
     } else if (!filter) {
-      router.push("/beverages/drinks");
+      router.push("/drikke/drinker");
     }
   }
 
@@ -223,7 +223,7 @@ const SearchFilterDrinks = () => {
         router.push(slug);
       }
     } else {
-      router.push("/beverages/drinks");
+      router.push("/drikke/drinker");
     }
   }
 
@@ -458,7 +458,7 @@ const SearchFilterDrinks = () => {
           <input
             className="rounded-sm border border-black p-2 relative"
             id="search"
-            placeholder="Search..."
+            placeholder="Søk..."
             type="text"
           />
           <button

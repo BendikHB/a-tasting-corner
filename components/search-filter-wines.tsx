@@ -107,7 +107,7 @@ const SearchFilterWines = () => {
     if (!filter && searchString) {
       router.push("?search=" + searchString);
     } else if (!filter) {
-      router.push("/beverages/wines");
+      router.push("/drikke/vin");
     }
   }
 
@@ -189,7 +189,7 @@ const SearchFilterWines = () => {
         router.push(slug);
       }
     } else {
-      router.push("/beverages/wines");
+      router.push("/drikke/vin");
     }
   }
 
@@ -213,14 +213,14 @@ const SearchFilterWines = () => {
   const [dropRegion, setdropRegion] = useState(false);
   const [DropVintage, setDropVintage] = useState(false);
 
-  const typeOptions = ["red", "white", "rose", "sparkling", "port"];
+  const typeOptions = ["rod", "hvit", "rose", "muserende", "port"];
   const regionOptions = [
-    "new-world",
-    "old-world",
-    "france",
-    "italy",
+    "frankrike",
+    "italia",
     "usa",
-    "south-africa",
+    "sor-africa",
+    "argentina",
+    "australia",
   ];
   const vintageOptions = [
     "2010",
@@ -293,7 +293,7 @@ const SearchFilterWines = () => {
               setdropRegion(!dropRegion);
             }}
           >
-            Region
+            Land
           </button>
         </div>
         <div
@@ -337,7 +337,7 @@ const SearchFilterWines = () => {
               setDropVintage(!DropVintage);
             }}
           >
-            Vintage
+            Årgang
           </button>
         </div>
         <div
@@ -386,7 +386,7 @@ const SearchFilterWines = () => {
           <input
             className="rounded-sm border border-black p-2 relative"
             id="search"
-            placeholder="Search..."
+            placeholder="Søk..."
             type="text"
           />
           <button

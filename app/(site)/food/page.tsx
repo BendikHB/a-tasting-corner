@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 export default async function Page() {
-  const page = await getPage("food");
+  const page = await getPage("mat");
   const food = await getFoods();
 
   const {
