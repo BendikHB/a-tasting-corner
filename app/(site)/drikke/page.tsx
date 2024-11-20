@@ -34,9 +34,9 @@ export default async function Page() {
 
   return (
     <div className="mx-auto">
-      <section className="flex gap-5 p-5 bg-black h-[50vh]">
+      <section className="flex flex-col md:flex-row gap-5 p-5 bg-black h-[60vh] md:h-[50vh]">
         {image && (
-          <Link href={url} className="relative w-1/2 cursor-pointer h-full">
+          <Link href={url} className="relative md:w-1/2 cursor-pointer h-full">
             <Image
               src={image}
               alt={alt}
@@ -45,9 +45,9 @@ export default async function Page() {
               priority
             />
             {url && (
-              <div className="px-12 py-8 bg-black absolute bottom-0 left-0">
+              <div className="px-6 md:px-12  py-4 md:py-8 bg-black absolute bottom-0 left-0">
                 <button
-                  className={`${textStyles.dark1} text-3xl flex items-end`}
+                  className={`${textStyles.dark1} text-xl md:text-3xl flex items-end`}
                 >
                   {linkText}
                   <div className="pb-2 pl-3">
@@ -63,7 +63,10 @@ export default async function Page() {
           </Link>
         )}
         {imageTwo && (
-          <Link href={urlTwo} className="relative w-1/2 h-full cursor-pointer">
+          <Link
+            href={urlTwo}
+            className="relative md:w-1/2 h-full cursor-pointer"
+          >
             <Image
               src={imageTwo}
               alt={altTwo}
@@ -72,9 +75,9 @@ export default async function Page() {
               priority
             />
             {urlTwo && (
-              <div className="px-12 py-8 bg-black absolute bottom-0 left-0">
+              <div className="px-6 md:px-12  py-4 md:py-8 bg-black absolute bottom-0 left-0">
                 <button
-                  className={`${textStyles.dark2} text-3xl flex items-end`}
+                  className={`${textStyles.dark2} text-xl md:text-3xl flex items-end`}
                 >
                   {linkTextTwo}
                   <div className="pb-2 pl-3">

@@ -69,15 +69,37 @@ export default async function Page() {
             )}
           </Link>
         )}
+        {image && !url && (
+          <div className="relative w-1/2 h-full">
+            <Image
+              src={image}
+              alt={alt}
+              fill
+              style={{ objectFit: "cover" }}
+              priority
+            />
+          </div>
+        )}
+        {imageTwo && !urlTwo && (
+          <div className="relative w-1/2 h-full">
+            <Image
+              src={imageTwo}
+              alt={altTwo}
+              fill
+              style={{ objectFit: "cover" }}
+              priority
+            />
+          </div>
+        )}
       </section>
-      <section className="max-w-4xl mx-auto pt-20">
+      <section className="max-w-4xl mx-auto pt-20 px-4">
         <h1 className="text-center text-6xl mb-5 max-w-md mx-auto">{name}</h1>
         <div className="text-center text-xl">
           <PortableText value={intro} />
         </div>
       </section>
 
-      <section className="mt-10">
+      <section className="mt-10 px-4">
         <Suspense>
           <SearchFilterPosts />
           <FilteredPosts posts={posts} />

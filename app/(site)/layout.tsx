@@ -103,7 +103,7 @@ export default async function RootLayout({
           </header>
           <main className="w-full">{children}</main>
         </div>
-        <footer></footer>
+        <footer className="pb-5"></footer>
       </body>
     </html>
   );
