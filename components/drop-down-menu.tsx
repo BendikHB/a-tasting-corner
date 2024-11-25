@@ -3,11 +3,12 @@ import { dropDown } from "@/utils/dropDown";
 import { useEffect, useRef, useState } from "react";
 import Lottie from "react-lottie-player";
 import menu from "../public/lottie/menu.json";
+import { usePathname } from "next/navigation";
 
 const DropDownMenu = () => {
   const [active, setActive] = useState(false);
-
   const animRef = useRef(null);
+  const pathname = usePathname();
 
   function handleClick() {
     //@ts-ignore
@@ -25,6 +26,10 @@ const DropDownMenu = () => {
   useEffect(() => {
     initalLoad();
   }, []);
+
+  useEffect(() => {
+    handleClick();
+  }, [pathname]);
 
   return (
     <a onClick={() => handleClick()} className="text-2xl md:hidden">
