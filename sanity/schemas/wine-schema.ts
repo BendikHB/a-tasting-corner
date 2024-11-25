@@ -96,6 +96,7 @@ const wine = {
           { title: "South Africa", value: "south-africa" },
           { title: "Aregentina", value: "argentina" },
           { title: "Australia", value: "australia" },
+          { title: "Tyskland", value: "tyskland" },
         ],
       },
     },

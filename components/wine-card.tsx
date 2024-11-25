@@ -32,12 +32,12 @@ const WineCard = ({ data, basePath }: IDrinkCard) => {
               <p>{type}</p>
             </div>
             <div className="pb-1 md:pb-0">
-              <p className="font-medium">Region:</p>
+              <p className="font-medium">Land:</p>
               <p>{region}</p>
             </div>
             {vintage && (
               <div>
-                <p className="font-medium">Vintage:</p>
+                <p className="font-medium">Årgang:</p>
                 <p>{vintage}</p>
               </div>
             )}

@@ -221,6 +221,7 @@ const SearchFilterWines = () => {
     "sor-africa",
     "argentina",
     "australia",
+    "tyskland",
   ];
   const vintageOptions = [
     "2010",
