@@ -6,7 +6,7 @@ import Link from "next/link";
 import React from "react";
 
 export default async function Page() {
-  const page = await getPage("about");
+  const page = await getPage("om-oss");
   const {
     image,
     alt,
