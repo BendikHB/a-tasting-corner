@@ -10,7 +10,7 @@ export interface IButtonList {
 
 const ButtonList = ({ data }: IButtonList) => {
   return (
-    <div className="p-20 mx-auto max-w-7xl flex gap-7 justify-center">
+    <div className="p-12 md:p-20 mx-auto max-w-7xl flex gap-4 md:gap-7 justify-center flex-wrap">
       {data.map((cta, idx) => {
         return (
           <div key={cta.title + idx}>

@@ -28,8 +28,8 @@ const TextPhoto = ({ data }: ITextPhoto) => {
     : null;
 
   return (
-    <section className="relative flex justify-center max-w-screen-xl mx-auto items-center py-24">
-      <div className="bg-light absolute py-8 px-12 text-3xl left-1/2 top-36">
+    <section className="relative flex flex-col md:flex-row justify-center max-w-screen-xl mx-auto items-center py-12 md:py-24">
+      <div className="bg-light absolute py-8 px-12 text-2xl md:text-3xl left-1/4 md:left-1/2 top-20 md:top-36">
         {title && (
           <>
             {type === 1 && <h1>{title}</h1>}
@@ -39,7 +39,7 @@ const TextPhoto = ({ data }: ITextPhoto) => {
         )}
       </div>
       <Image src={image} alt={alt} width={600} height={600} />
-      <div className="w-1/3 p-8">
+      <div className="md:w-1/3 p-8">
         <PortableText value={text} />
         {cta && (
           <Link href={cta.url}>

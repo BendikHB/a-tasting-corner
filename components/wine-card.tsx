@@ -12,6 +12,29 @@ const WineCard = ({ data, basePath }: IDrinkCard) => {
   const { name, slug, image, alt, type, region, vintage } = data;
   const newSlug = basePath + slug;
 
+  let typeString;
+  switch (type) {
+    case "rod":
+      typeString = "Rød";
+      break;
+    case "rose":
+      typeString = "Rosé";
+      break;
+    default:
+      typeString = type;
+      break;
+  }
+
+  let regionString;
+  switch (region) {
+    case "sor-afrika":
+      regionString = "Sør Afrika";
+      break;
+    default:
+      regionString = region;
+      break;
+  }
+
   return (
     <Link href={newSlug} className="flex flex-col flex-grow">
       <div className="h-[120px] w-full md:h-[200px] md:w-[300px] relative">
@@ -29,11 +52,11 @@ const WineCard = ({ data, basePath }: IDrinkCard) => {
           <div className="flex flex-wrap gap-3 text-xs pt-2 pb-1 md:pb-0">
             <div className="pb-1 md:pb-0">
               <p className="font-medium">Type:</p>
-              <p>{type}</p>
+              <p className="capitalize">{typeString}</p>
             </div>
             <div className="pb-1 md:pb-0">
               <p className="font-medium">Land:</p>
-              <p>{region}</p>
+              <p className="capitalize">{regionString}</p>
             </div>
             {vintage && (
               <div>

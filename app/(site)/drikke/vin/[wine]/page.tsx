@@ -14,10 +14,33 @@ export default async function Wine({ params }: Props) {
   const slug = params.wine;
   const wine = await getWine(slug);
 
+  let typeString;
+  switch (wine.type) {
+    case "rod":
+      typeString = "Rød";
+      break;
+    case "rose":
+      typeString = "Rosé";
+      break;
+    default:
+      typeString = wine.type;
+      break;
+  }
+
+  let regionString;
+  switch (wine.region) {
+    case "sor-afrika":
+      regionString = "Sør Afrika";
+      break;
+    default:
+      regionString = wine.region;
+      break;
+  }
+
   return (
     <>
       <section className="w-full">
-        <div className="h-[600px]">
+        <div className="h-64 md:h-[600px]">
           <div className="h-full w-full relative">
             {wine?.background && (
               <Image
@@ -30,27 +53,39 @@ export default async function Wine({ params }: Props) {
             )}
           </div>
         </div>
-        <div className="bg-light max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:px-[5%]">
-          <h1 className="text-4xl md:text-5xl py-10 text-center md:text-left ">
-            {wine.name}
-          </h1>
-          {wine.url && (
-            <Link href={wine.url} className="mb-10 md:mb-0">
-              <div className="px-6 md:px-8  py-4 md:py-6 bg-black ">
-                <div className={`text-white text-xl md:text-xl flex items-end`}>
-                  kjøp på vinmonopolet
-                  <div className="pb-2 pl-3">
-                    <ArrowRight width={38} height={8} color={"#FFF"} />
+        <div className="bg-light max-w-7xl mx-auto flex justify-between items-center md:px-[5%]">
+          <div className="bg-white px-2 py-2 h-full w-[80px] md:w-[0px] flex-shrink-0">
+            <Image
+              src={wine.bottle}
+              alt={wine.bottleAlt}
+              width={100}
+              height={300}
+            />
+          </div>
+          <div className="mx-auto flex flex-col md:flex-row justify-center md:justify-between items-center md:px-[5%]">
+            <h1 className="text-4xl md:text-5xl py-4 md:py-10 text-center md:text-left ">
+              {wine.name}
+            </h1>
+            {wine.url && (
+              <Link href={wine.url}>
+                <div className="px-6 md:px-8  py-4 md:py-6 bg-black ">
+                  <div
+                    className={`text-white text-xl md:text-xl flex items-end`}
+                  >
+                    kjøp på vinmonopolet
+                    <div className="pb-2 pl-3">
+                      <ArrowRight width={38} height={8} color={"#FFF"} />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          )}
+              </Link>
+            )}
+          </div>
         </div>
       </section>
-      <section className="my-16 px-5 md:pl-[10%] max-w-7xl mx-auto">
-        <div className="flex gap-8 flex-col md:flex-row">
-          <div>
+      <section className="my-8 md:my-16 px-5 md:pl-[10%] max-w-7xl mx-auto">
+        <div className="flex md:gap-8 flex-col md:flex-row">
+          <div className="w-[0px] md:w-[100px] flex-shrink-0">
             <Image
               src={wine.bottle}
               alt={wine.bottleAlt}
@@ -75,11 +110,11 @@ export default async function Wine({ params }: Props) {
             <div className="flex text-center gap-12 mt-8">
               <div>
                 <h3 className="font-medium">Type</h3>
-                <p className="text-xl">{wine.type}</p>
+                <p className="text-xl capitalize">{typeString}</p>
               </div>
               <div>
                 <h3 className="font-medium">Land</h3>
-                <p className="text-xl">{wine.region}</p>
+                <p className="text-xl capitalize">{regionString}</p>
               </div>
               <div>
                 <h3 className="font-medium">Årgang</h3>

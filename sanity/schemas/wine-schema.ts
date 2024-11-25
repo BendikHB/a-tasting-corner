@@ -76,10 +76,10 @@ const wine = {
       type: "string",
       options: {
         list: [
-          { title: "Red", value: "Red" },
-          { title: "White", value: "White" },
+          { title: "Rød", value: "rod" },
+          { title: "Hvit", value: "hvit" },
           { title: "Rosé", value: "Rose" },
-          { title: "Sparkling", value: "Sparkling" },
+          { title: "Muserende", value: "muserende" },
           { title: "Port", value: "Port" },
         ],
       },
@@ -90,10 +90,10 @@ const wine = {
       type: "string",
       options: {
         list: [
-          { title: "France", value: "France" },
-          { title: "Italy", value: "Italy" },
+          { title: "Frankrike", value: "frankrike" },
+          { title: "Italia", value: "Italia" },
           { title: "Usa", value: "Usa" },
-          { title: "South Africa", value: "south-africa" },
+          { title: "Sør Afrika", value: "sor-afrika" },
           { title: "Aregentina", value: "argentina" },
           { title: "Australia", value: "australia" },
           { title: "Tyskland", value: "tyskland" },

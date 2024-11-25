@@ -34,7 +34,7 @@ export default async function Page() {
 
   return (
     <div className="mx-auto">
-      <section className="flex flex-col md:flex-row gap-5 p-5 bg-black h-[60vh] md:h-[50vh]">
+      <section className="flex flex-col md:flex-row gap-5 p-5 bg-black h-[85vh] md:h-[50vh]">
         {image && (
           <Link href={url} className="relative md:w-1/2 cursor-pointer h-full">
             <Image
@@ -45,7 +45,7 @@ export default async function Page() {
               priority
             />
             {url && (
-              <div className="px-6 md:px-12  py-4 md:py-8 bg-black absolute bottom-0 left-0">
+              <div className="px-6 md:px-12  pt-4 pb-2 md:py-8 bg-black absolute bottom-0 left-0">
                 <button
                   className={`${textStyles.dark1} text-xl md:text-3xl flex items-end`}
                 >
@@ -75,7 +75,7 @@ export default async function Page() {
               priority
             />
             {urlTwo && (
-              <div className="px-6 md:px-12  py-4 md:py-8 bg-black absolute bottom-0 left-0">
+              <div className="px-6 md:px-12  pt-4 pb-2 md:py-8 bg-black absolute bottom-0 left-0">
                 <button
                   className={`${textStyles.dark2} text-xl md:text-3xl flex items-end`}
                 >
@@ -93,7 +93,7 @@ export default async function Page() {
           </Link>
         )}
       </section>
-      <section className="max-w-4xl mx-auto pt-20">
+      <section className="max-w-4xl mx-auto pt-20 px-4">
         <h1 className="text-center text-6xl mb-5 max-w-md mx-auto">
           {heading}
         </h1>

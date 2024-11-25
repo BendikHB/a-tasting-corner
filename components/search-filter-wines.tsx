@@ -218,7 +218,7 @@ const SearchFilterWines = () => {
     "frankrike",
     "italia",
     "usa",
-    "sor-africa",
+    "sor-afrika",
     "argentina",
     "australia",
     "tyskland",
@@ -259,6 +259,20 @@ const SearchFilterWines = () => {
           className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
         >
           {typeOptions.map((c) => {
+            let prettyName;
+
+            switch (c) {
+              case "rod":
+                prettyName = "Rød";
+                break;
+              case "rose":
+                prettyName = "Rosé";
+                break;
+              default:
+                prettyName = c;
+                break;
+            }
+
             return (
               <div className="flex items-center mb-4" key={c + " type"}>
                 <input
@@ -278,7 +292,7 @@ const SearchFilterWines = () => {
                   htmlFor={c + "-checkbox"}
                   className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
                 >
-                  {c}
+                  {prettyName}
                 </label>
               </div>
             );
@@ -302,7 +316,16 @@ const SearchFilterWines = () => {
           className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
         >
           {regionOptions.map((c) => {
-            const prettyName = c.replace("-", " ");
+            let prettyName;
+
+            switch (c) {
+              case "sor-afrika":
+                prettyName = "Sør Afrika";
+                break;
+              default:
+                prettyName = c.replace("-", " ");
+                break;
+            }
             return (
               <div className="flex items-center mb-4" key={c + " region"}>
                 <input

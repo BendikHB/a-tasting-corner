@@ -15,15 +15,18 @@ export default async function Page() {
 
   return (
     <div className="mx-auto">
-      <section className="flex flex-col md:flex-row gap-5 p-5 bg-black h-[60vh] md:h-[50vh]">
-        <div className="w-1/2 bg-black p-4 md:p-12 md:pb-16 md:h-full flex flex-col justify-center items-start text-white">
+      <section className="flex flex-col md:flex-row gap-5 p-5 bg-black md:h-[50vh]">
+        <div className="md:w-1/2 bg-black p-6 md:p-12 pb-8 md:pb-16 h-full flex flex-col justify-center items-start text-white">
           <h1 className="text-5xl mb-5 max-w-md font-Raleway">{heading}</h1>
           <div className="text-xl">
             <PortableText value={intro} />
           </div>
         </div>
         {image && (
-          <Link href={url} className="relative md:w-1/2 cursor-pointer h-full">
+          <Link
+            href={url}
+            className="relative md:w-1/2 cursor-pointer h-72 md:h-full"
+          >
             <Image
               src={image}
               alt={alt}
