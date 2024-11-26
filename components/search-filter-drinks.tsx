@@ -265,7 +265,7 @@ const SearchFilterDrinks = () => {
               setDropBase(!dropBase);
             }}
           >
-            Base spirit
+            Base sprit
           </button>
         </div>
         <div
@@ -273,6 +273,15 @@ const SearchFilterDrinks = () => {
           className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
         >
           {baseSpiritOptions.map((c) => {
+            let prettyName;
+            switch (c) {
+              case "rum":
+                prettyName = "Rom";
+                break;
+              default:
+                prettyName = c;
+                break;
+            }
             return (
               <div className="flex items-center mb-4" key={c + " base spirit"}>
                 <input
@@ -292,7 +301,7 @@ const SearchFilterDrinks = () => {
                   htmlFor={c + "-checkbox"}
                   className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
                 >
-                  {c}
+                  {prettyName}
                 </label>
               </div>
             );
@@ -316,6 +325,21 @@ const SearchFilterDrinks = () => {
           className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
         >
           {tasteOptions.map((c) => {
+            let prettyName;
+            switch (c) {
+              case "sweet":
+                prettyName = "Søt";
+                break;
+              case "sour":
+                prettyName = "Sur";
+                break;
+              case "fruity":
+                prettyName = "Fruktig";
+                break;
+              default:
+                prettyName = c;
+                break;
+            }
             return (
               <div className="flex items-center mb-4" key={c + " tastes"}>
                 <input
@@ -335,7 +359,7 @@ const SearchFilterDrinks = () => {
                   htmlFor={c + "-checkbox"}
                   className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
                 >
-                  {c}
+                  {prettyName}
                 </label>
               </div>
             );
@@ -351,7 +375,7 @@ const SearchFilterDrinks = () => {
               setDropStrength(!dropStrength);
             }}
           >
-            Alcohol strength
+            Alkoholinnhold
           </button>
         </div>
         <div
@@ -359,6 +383,18 @@ const SearchFilterDrinks = () => {
           className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
         >
           {strengthOptions.map((c) => {
+            let prettyName;
+            switch (c) {
+              case "high":
+                prettyName = "Høyt";
+                break;
+              case "medium":
+                prettyName = "Normalt";
+                break;
+              case "low":
+                prettyName = "Lavt";
+                break;
+            }
             return (
               <div className="flex items-center mb-4" key={c + " strength"}>
                 <input
@@ -378,7 +414,7 @@ const SearchFilterDrinks = () => {
                   htmlFor={c + "-checkbox"}
                   className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
                 >
-                  {c}
+                  {prettyName}
                 </label>
               </div>
             );
@@ -394,7 +430,7 @@ const SearchFilterDrinks = () => {
               setDropAmount(!dropAmount);
             }}
           >
-            Amount of ingredients
+            Antall ingredienser
           </button>
         </div>
         <div
@@ -405,22 +441,22 @@ const SearchFilterDrinks = () => {
             let prettyName;
             switch (c) {
               case "2":
-                prettyName = "two";
+                prettyName = "to";
                 break;
               case "3":
-                prettyName = "three";
+                prettyName = "tre";
                 break;
               case "4":
-                prettyName = "four";
+                prettyName = "fire";
                 break;
               case "5":
-                prettyName = "five";
+                prettyName = "fem";
                 break;
               case "6":
-                prettyName = "six";
+                prettyName = "seks";
                 break;
               case "0":
-                prettyName = "Over six";
+                prettyName = "Flere enn seks";
                 break;
               default:
                 prettyName = "default";
