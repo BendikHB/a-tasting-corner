@@ -65,7 +65,7 @@ const SearchFilterPosts = () => {
     if (!filter && searchString) {
       router.push("?search=" + searchString);
     } else if (!filter) {
-      router.push("/matter-of-taste");
+      router.push("/smak-og-behag");
     }
   }
 
@@ -147,7 +147,7 @@ const SearchFilterPosts = () => {
         router.push(slug);
       }
     } else {
-      router.push("/matter-of-taste");
+      router.push("/smak-og-behag");
     }
   }
 
@@ -160,7 +160,7 @@ const SearchFilterPosts = () => {
     search();
   }
 
-  const categoryOptions = ["food", "wines", "drinks"];
+  const categoryOptions = ["mat", "vin", "drinker"];
 
   return (
     <div className="flex gap-3 py-2 flex-wrap justify-center">

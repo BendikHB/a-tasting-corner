@@ -50,9 +50,9 @@ const post = {
       of: [{ type: "string" }],
       options: {
         list: [
-          { title: "Food", value: "food" },
-          { title: "Wine", value: "wines" },
-          { title: "Drink", value: "drinks" },
+          { title: "Mat", value: "mat" },
+          { title: "Vin", value: "vin" },
+          { title: "Drinker", value: "drinker" },
         ],
       },
     },

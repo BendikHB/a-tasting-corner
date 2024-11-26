@@ -41,7 +41,7 @@ const FilteredPosts = ({ posts }: IPosts) => {
         filtered.map((d) => {
           return (
             <div key={d.name} className="basis-[46%] md:basis-auto flex">
-              <Card data={d} basePath={"/matter-of-taste/"} />
+              <Card data={d} basePath={"/smak-og-behag/"} />
             </div>
           );
         })}
