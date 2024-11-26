@@ -53,9 +53,9 @@ const FilteredRecommendations = ({ drinks, wines, food }: IRecommendation) => {
   recommended.forEach((c) => {
     const filter: TRecommendation[] = [];
     if (
-      (category.includes("drinks") && c.drink) ||
-      (category.includes("wines") && c.wine) ||
-      (category.includes("food") && c.food) ||
+      (category.includes("drinker") && c.drink) ||
+      (category.includes("vin") && c.wine) ||
+      (category.includes("mat") && c.food) ||
       category.length === 0
     ) {
       filter.push(c);

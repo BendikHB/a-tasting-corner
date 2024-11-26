@@ -65,7 +65,7 @@ const SearchFilterRecommendations = () => {
     if (!filter && searchString) {
       router.push("?search=" + searchString);
     } else if (!filter) {
-      router.push("/recommendations");
+      router.push("/anbefalinger");
     }
   }
 
@@ -147,7 +147,7 @@ const SearchFilterRecommendations = () => {
         router.push(slug);
       }
     } else {
-      router.push("/recommendations");
+      router.push("/anbefalinger");
     }
   }
 
@@ -160,7 +160,7 @@ const SearchFilterRecommendations = () => {
     search();
   }
 
-  const categoryOptions = ["food", "wines", "drinks"];
+  const categoryOptions = ["mat", "vin", "drinker"];
 
   return (
     <div className="flex gap-3 py-2 flex-wrap justify-center">
