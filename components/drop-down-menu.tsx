@@ -28,7 +28,10 @@ const DropDownMenu = () => {
   }, []);
 
   useEffect(() => {
-    handleClick();
+    const width = window.innerWidth;
+    if (width <= 768 && pathname !== "/") {
+      handleClick();
+    }
   }, [pathname]);
 
   return (
