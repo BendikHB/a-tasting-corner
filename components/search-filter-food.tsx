@@ -259,7 +259,8 @@ const SearchFilterFood = () => {
     "tilbehor",
     "salater",
     "sauser",
-    "sessert",
+    "supper",
+    "dessert",
   ];
   const characteristicsOptions = ["sot", "sur", "fruktig", "savory"];
   const ingredientOptions = [
@@ -268,7 +269,10 @@ const SearchFilterFood = () => {
     "fugl",
     "vilt",
     "storfe",
-    "vegetar",
+    "gronnsaker",
+    "frukt",
+    "bakverk",
+    "meieriprodukter",
   ];
   const cuisineOptions = [
     "gourmet",
@@ -407,6 +411,15 @@ const SearchFilterFood = () => {
           className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
         >
           {ingredientOptions.map((c) => {
+            let prettyName;
+            switch (c) {
+              case "gronnsaker":
+                prettyName = "Grønnsaker";
+                break;
+              default:
+                prettyName = c;
+                break;
+            }
             return (
               <div className="flex items-center mb-4" key={c + " ingredient"}>
                 <input
@@ -426,7 +439,7 @@ const SearchFilterFood = () => {
                   htmlFor={c + "-checkbox"}
                   className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
                 >
-                  {c}
+                  {prettyName}
                 </label>
               </div>
             );
