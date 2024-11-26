@@ -140,7 +140,7 @@ const SearchFilterFood = () => {
     if (!filter && searchString) {
       router.push("?search=" + searchString);
     } else if (!filter) {
-      router.push("/food");
+      router.push("/mat");
     }
   }
 
@@ -222,7 +222,7 @@ const SearchFilterFood = () => {
         router.push(slug);
       }
     } else {
-      router.push("/food");
+      router.push("/mat");
     }
   }
 
@@ -254,30 +254,30 @@ const SearchFilterFood = () => {
   const [dropcuisine, setDropcuisine] = useState(false);
 
   const foodTypeOptions = [
-    "appatizerz",
-    "main",
-    "side",
-    "salads",
-    "sauces",
-    "desserts",
+    "apertif",
+    "hovedrett",
+    "tilbehor",
+    "salater",
+    "sauser",
+    "sessert",
   ];
-  const characteristicsOptions = ["sweet", "sour", "fruity", "savory"];
+  const characteristicsOptions = ["sot", "sur", "fruktig", "savory"];
   const ingredientOptions = [
-    "fish",
-    "shellfish",
-    "bird",
-    "game",
-    "beef",
-    "vegetarian",
+    "fisk",
+    "skalldyr",
+    "fugl",
+    "vilt",
+    "storfe",
+    "vegetar",
   ];
   const cuisineOptions = [
     "gourmet",
-    "traditional",
-    "french",
-    "italian",
-    "indian",
-    "japanese",
-    "mediterranean",
+    "tradisjonell",
+    "fransk",
+    "italiensk",
+    "indisk",
+    "japansk",
+    "middelhavet",
   ];
 
   return (
@@ -299,6 +299,16 @@ const SearchFilterFood = () => {
           className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
         >
           {foodTypeOptions.map((c) => {
+            let prettyName;
+            switch (c) {
+              case "Tilbehor":
+                prettyName = "Tilbehør";
+                break;
+              default:
+                prettyName = c;
+                break;
+            }
+
             return (
               <div className="flex items-center mb-4" key={c + " base spirit"}>
                 <input
@@ -308,96 +318,6 @@ const SearchFilterFood = () => {
                   onClick={() => {
                     setFilter({
                       type: "foodType",
-                      tag: c,
-                      active: checked(c + "-checkbox"),
-                    });
-                  }}
-                  className="w-4 h-4 accent-primary rounded-sm"
-                />
-                <label
-                  htmlFor={c + "-checkbox"}
-                  className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
-                >
-                  {c}
-                </label>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <div className="relative">
-        <div>
-          <button
-            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
-            onClick={() => {
-              dropDown(!dropcharacteristics, "characteristics");
-              setDropcharacteristics(!dropcharacteristics);
-            }}
-          >
-            Characteristics
-          </button>
-        </div>
-        <div
-          id="characteristics"
-          className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
-        >
-          {characteristicsOptions.map((c) => {
-            return (
-              <div
-                className="flex items-center mb-4"
-                key={c + " characteristics"}
-              >
-                <input
-                  id={c + "-checkbox"}
-                  type="checkbox"
-                  value=""
-                  onClick={() => {
-                    setFilter({
-                      type: "characteristics",
-                      tag: c,
-                      active: checked(c + "-checkbox"),
-                    });
-                  }}
-                  className="w-4 h-4 accent-primary rounded-sm"
-                />
-                <label
-                  htmlFor={c + "-checkbox"}
-                  className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
-                >
-                  {c}
-                </label>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <div className="relative">
-        <div>
-          <button
-            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
-            onClick={() => {
-              dropDown(!dropingredient, "ingredient");
-              setDropingredient(!dropingredient);
-            }}
-          >
-            Main ingredient
-          </button>
-        </div>
-        <div
-          id="ingredient"
-          className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
-        >
-          {ingredientOptions.map((c) => {
-            const prettyName = c === "no" ? "Non-alcoholic" : c;
-            return (
-              <div className="flex items-center mb-4" key={c + " ingredient"}>
-                <input
-                  id={c + "-checkbox"}
-                  type="checkbox"
-                  value=""
-                  onClick={() => {
-                    setFilter({
-                      type: "ingredient",
                       tag: c,
                       active: checked(c + "-checkbox"),
                     });
@@ -420,11 +340,109 @@ const SearchFilterFood = () => {
           <button
             className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
             onClick={() => {
+              dropDown(!dropcharacteristics, "characteristics");
+              setDropcharacteristics(!dropcharacteristics);
+            }}
+          >
+            Karakteristikk
+          </button>
+        </div>
+        <div
+          id="characteristics"
+          className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
+        >
+          {characteristicsOptions.map((c) => {
+            let prettyName;
+            switch (c) {
+              case "sot":
+                prettyName = "Søt";
+                break;
+              default:
+                prettyName = c;
+                break;
+            }
+            return (
+              <div
+                className="flex items-center mb-4"
+                key={c + " characteristics"}
+              >
+                <input
+                  id={c + "-checkbox"}
+                  type="checkbox"
+                  value=""
+                  onClick={() => {
+                    setFilter({
+                      type: "characteristics",
+                      tag: c,
+                      active: checked(c + "-checkbox"),
+                    });
+                  }}
+                  className="w-4 h-4 accent-primary rounded-sm"
+                />
+                <label
+                  htmlFor={c + "-checkbox"}
+                  className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
+                >
+                  {prettyName}
+                </label>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="relative">
+        <div>
+          <button
+            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
+            onClick={() => {
+              dropDown(!dropingredient, "ingredient");
+              setDropingredient(!dropingredient);
+            }}
+          >
+            Hoved ingrediens
+          </button>
+        </div>
+        <div
+          id="ingredient"
+          className="hidden bg-white absolute z-10 p-4 min-w-48 shadow-md"
+        >
+          {ingredientOptions.map((c) => {
+            return (
+              <div className="flex items-center mb-4" key={c + " ingredient"}>
+                <input
+                  id={c + "-checkbox"}
+                  type="checkbox"
+                  value=""
+                  onClick={() => {
+                    setFilter({
+                      type: "ingredient",
+                      tag: c,
+                      active: checked(c + "-checkbox"),
+                    });
+                  }}
+                  className="w-4 h-4 accent-primary rounded-sm"
+                />
+                <label
+                  htmlFor={c + "-checkbox"}
+                  className="ms-2 text-sm font-medium text-black dark:text-black capitalize"
+                >
+                  {c}
+                </label>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="relative">
+        <div>
+          <button
+            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
+            onClick={() => {
               dropDown(!dropcuisine, "cuisine");
               setDropcuisine(!dropcuisine);
             }}
           >
-            Cuisine
+            Kjøkken
           </button>
         </div>
         <div

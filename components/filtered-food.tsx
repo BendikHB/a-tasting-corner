@@ -54,7 +54,6 @@ const FilteredFood = ({ food }: IFood) => {
       if (characteristics.includes(cn.toLowerCase())) {
         filter.push(cn.toLowerCase());
         contains.push(cn.toLowerCase());
-        console.log("inside?");
       } else if (characteristics.length) {
         filter.push(characteristics[0]);
       }

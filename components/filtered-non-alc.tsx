@@ -48,7 +48,7 @@ const FilteredNonAlc = ({ drinks }: IDrinks) => {
         filtered.map((d) => {
           return (
             <div key={d.name} className="basis-[46%] md:basis-auto flex">
-              <DrinkCard data={d} basePath={"/drikke/uten-alkohol/"} />
+              <DrinkCard data={d} basePath={"/drikke/drinker/"} />
             </div>
           );
         })}
