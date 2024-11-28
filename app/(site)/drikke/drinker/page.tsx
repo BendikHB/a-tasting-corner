@@ -15,13 +15,7 @@ export default async function Page() {
 
   return (
     <div className="mx-auto">
-      <section className="flex flex-col md:flex-row gap-5 p-5 bg-black md:h-[50vh]">
-        <div className="md:w-1/2 bg-black p-6 md:p-12 pb-8 md:pb-16 h-full flex flex-col justify-center items-start text-white">
-          <h1 className="text-5xl mb-5 max-w-md font-Raleway">{heading}</h1>
-          <div className="text-xl">
-            <PortableText value={intro} />
-          </div>
-        </div>
+      <section className="flex flex-col md:flex-row items-center justify-center gap-5 p-5 bg-black md:h-[50vh]">
         {image && (
           <Link
             href={url}
@@ -48,6 +42,14 @@ export default async function Page() {
             )}
           </Link>
         )}
+      </section>
+      <section className="max-w-4xl mx-auto pt-20 px-4">
+        <h1 className="text-center text-6xl mb-5 max-w-md mx-auto">
+          {heading}
+        </h1>
+        <div className="text-center text-xl">
+          <PortableText value={intro} />
+        </div>
       </section>
       <section className="flex flex-col items-center mx-auto pt-16 px-5 md:px-10">
         <Suspense>
