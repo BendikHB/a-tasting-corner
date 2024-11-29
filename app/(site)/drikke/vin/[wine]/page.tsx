@@ -1,4 +1,5 @@
 import WineCard from "@/components/wine-card";
+import { ArrowLeft } from "@/public/icons/arrow-left";
 import { ArrowRight } from "@/public/icons/arrow-right";
 import { getWine } from "@/sanity/sanity-utils";
 import { PortableText } from "next-sanity";
@@ -42,6 +43,13 @@ export default async function Wine({ params }: Props) {
       <section className="w-full">
         <div className="h-64 md:h-[600px]">
           <div className="h-full w-full relative">
+            <Link
+              href={"/drikke/vin/"}
+              className="absolute z-10 p-3 bg-black bottom-0 md:top-16 left-0 md:bottom-auto md:left-10 flex items-center"
+            >
+              <ArrowLeft color="#FFF" height={10} width={60} />
+              <p className="pl-1 text-white">Back</p>
+            </Link>
             {wine?.background && (
               <Image
                 src={wine.background}

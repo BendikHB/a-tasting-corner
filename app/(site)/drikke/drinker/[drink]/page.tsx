@@ -1,9 +1,11 @@
 import DrinkCard from "@/components/drink-card";
 import Ingredients from "@/components/ingredients";
 import SwitchBtn from "@/components/switch-btn/switch-btn";
+import { ArrowLeft } from "@/public/icons/arrow-left";
 import { getDrink } from "@/sanity/sanity-utils";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 type Props = {
@@ -19,6 +21,13 @@ export default async function Drink({ params }: Props) {
       <section className="w-full">
         <div className="h-[600px]">
           <div className="h-full w-full relative">
+            <Link
+              href={"/drikke/drinker/"}
+              className="absolute z-10 p-3 bg-black bottom-0 md:top-16 left-0 md:bottom-auto md:left-10 flex items-center"
+            >
+              <ArrowLeft color="#FFF" height={10} width={60} />
+              <p className="pl-1 text-white">Back</p>
+            </Link>
             {drink?.image && (
               <Image
                 src={drink.image}
