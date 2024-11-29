@@ -46,8 +46,8 @@ const WineCard = ({ data, basePath }: IDrinkCard) => {
           style={{ objectFit: "cover" }}
         />
       </div>
-      <div className="shadow-md p-4 pt-3 flex-grow flex flex-col">
-        <h3 className="text-lg">{name}</h3>
+      <div className="shadow-md p-3 md:p-4 pt-3 flex-grow flex flex-col">
+        <h3 className="text-base">{name}</h3>
         <div className="flex flex-col gap-1 md:flex-row justify-between md:items-end flex-grow">
           <div className="flex flex-wrap gap-3 text-xs pt-2 pb-1 md:pb-0">
             <div className="pb-1 md:pb-0">

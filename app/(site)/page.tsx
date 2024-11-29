@@ -33,13 +33,13 @@ export default async function Home() {
 
   return (
     <div className="mx-auto">
-      <section className="flex justify-center items-center gap-5 p-5">
+      <section className="flex justify-center items-center gap-5 p-5 flex-col md:flex-row">
         {image && (
           <Link href={url} className="relative max-w-1/2 cursor-pointer">
             <Image src={image} alt={alt} width={1080} height={1080} />
             {url && (
               <button
-                className={`${textStyles.dark1} text-3xl  absolute bottom-7 left-8 flex items-end`}
+                className={`${textStyles.dark1} text-2xl md:text-3xl  absolute bottom-7 left-8 flex items-end`}
               >
                 {linkText}
                 <div className="pb-2 pl-3">
@@ -54,7 +54,7 @@ export default async function Home() {
             <Image src={imageTwo} alt={altTwo} width={1080} height={1080} />
             {urlTwo && (
               <button
-                className={`${textStyles.dark2} text-3xl absolute bottom-7 left-8 flex items-end`}
+                className={`${textStyles.dark2} text-2xl md:text-3xl absolute bottom-7 left-8 flex items-end`}
               >
                 {linkTextTwo}
                 <div className="pb-2 pl-3">
@@ -65,7 +65,7 @@ export default async function Home() {
           </Link>
         )}
       </section>
-      <section className="max-w-4xl mx-auto pt-20">
+      <section className="max-w-4xl mx-auto pt-20 px-4">
         <h1 className="text-center text-6xl mb-5 max-w-md mx-auto">
           {heading}
         </h1>

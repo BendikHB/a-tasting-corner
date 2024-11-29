@@ -46,11 +46,11 @@ const FilteredWines = ({ wines }: IWines) => {
   });
 
   return (
-    <div className="flex gap-4 pt-5 flex-wrap max-w-full justify-center">
+    <div className="flex gap-2 md:gap-4 pt-5 flex-wrap max-w-full justify-center">
       {filtered &&
         filtered.map((d) => {
           return (
-            <div key={d.name} className="basis-[46%] md:basis-auto flex">
+            <div key={d.name} className="basis-[48%] md:basis-auto flex">
               <WineCard data={d} basePath={"/drikke/vin/"} />
             </div>
           );

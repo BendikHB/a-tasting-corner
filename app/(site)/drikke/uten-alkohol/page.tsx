@@ -17,7 +17,10 @@ export default async function Page() {
     <div className="mx-auto">
       <section className="flex flex-col items-center justify-center md:flex-row gap-5 p-5 bg-black h-[60vh] md:h-[50vh]">
         {image && (
-          <Link href={url} className="relative md:w-1/2 cursor-pointer h-full">
+          <Link
+            href={url}
+            className="relative md:w-1/2 cursor-pointer h-full w-full"
+          >
             <Image
               src={image}
               alt={alt}

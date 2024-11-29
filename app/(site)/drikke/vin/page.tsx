@@ -18,7 +18,7 @@ export default async function Page() {
         {image && (
           <Link
             href={url}
-            className="relative md:w-1/2 cursor-pointer h-72 md:h-full"
+            className="relative md:w-1/2 cursor-pointer h-72 md:h-full w-full"
           >
             <Image
               src={image}

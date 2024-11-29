@@ -38,9 +38,9 @@ export default async function Drink({ params }: Props) {
           <h1 className="text-5xl py-10 ml-[10%]">{drink.name}</h1>
         </div>
       </section>
-      <section className="flex my-16 max-w-7xl mx-auto">
-        <div className="w-1/3 border-r px-6 text-right">
-          <div className="ml-auto w-32 pr-2 mt-3">
+      <section className="flex flex-col md:flex-row my-16 max-w-7xl mx-auto">
+        <div className="md:w-1/3 border-r px-6 md:text-right">
+          <div className="md:ml-auto w-32 pr-2 mt-3">
             <SwitchBtn />
           </div>
           <h2 className="text-3xl mt-5 mb-4">Ingredients:</h2>
@@ -53,7 +53,7 @@ export default async function Drink({ params }: Props) {
             />
           </div>
         </div>
-        <div className="w-2/3 px-6">
+        <div className="md:w-2/3 px-6">
           <h2 className="text-3xl pt-6">How to make it:</h2>
           <div className="mt-4">
             <PortableText value={drink.how} />
@@ -68,20 +68,26 @@ export default async function Drink({ params }: Props) {
           )}
         </div>
       </section>
-      <section className="flex mb-16 mt-2 max-w-7xl mx-auto justify-end">
-        <div className="w-2/3 px-6">
-          <h2 className="text-3xl mt-3">Similar options:</h2>
-          {drink.similar && (
-            <div className="flex gap-6 pt-6">
-              {drink.similar.map((d) => {
-                return (
-                  <DrinkCard key={d._id} data={d} basePath="/drikke/drinker/" />
-                );
-              })}
-            </div>
-          )}
-        </div>
-      </section>
+      {drink.similar && (
+        <section className="flex mb-16 mt-2 max-w-7xl mx-auto justify-end">
+          <div className="w-2/3 px-6">
+            <h2 className="text-3xl mt-3">Similar options:</h2>
+            {drink.similar && (
+              <div className="flex gap-6 pt-6">
+                {drink.similar.map((d) => {
+                  return (
+                    <DrinkCard
+                      key={d._id}
+                      data={d}
+                      basePath="/drikke/drinker/"
+                    />
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
     </>
   );
 }
