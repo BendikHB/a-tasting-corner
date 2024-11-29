@@ -117,20 +117,22 @@ export default async function Wine({ params }: Props) {
             </div>
             <div className="flex text-center gap-12 mt-8 px-4">
               <div>
-                <h3 className="font-medium text-xs">Type</h3>
-                <p className="text-base capitalize">{typeString}</p>
+                <h3 className="font-medium text-xs md:text-base">Type</h3>
+                <p className="text-base capitalize md:text-lg">{typeString}</p>
               </div>
               <div>
-                <h3 className="font-medium text-xs">Land</h3>
-                <p className="text-base capitalize">{regionString}</p>
+                <h3 className="font-medium text-xs md:text-base">Land</h3>
+                <p className="text-base capitalize md:text-lg">
+                  {regionString}
+                </p>
               </div>
               <div>
-                <h3 className="font-medium text-xs">Årgang</h3>
-                <p className="text-base">{wine.vintage}</p>
+                <h3 className="font-medium text-xs md:text-base">Årgang</h3>
+                <p className="text-base md:text-lg">{wine.vintage}</p>
               </div>
               <div>
-                <h3 className="font-medium text-xs">Score</h3>
-                <p className="text-base">{wine.rating}</p>
+                <h3 className="font-medium text-xs md:text-base">Score</h3>
+                <p className="text-base md:text-lg">{wine.rating}</p>
               </div>
             </div>
           </div>

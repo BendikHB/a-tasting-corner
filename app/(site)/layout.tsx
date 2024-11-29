@@ -21,8 +21,13 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const pages = await getPages();
-  const menu = ["drikke", "smak og behag", "anbefalinger", "om oss"];
-  const drinksMenu = ["drinker", "vin", "uten alkohol"];
+  const menu = [
+    "drikke",
+    /* "mat", */ "smak og behag",
+    "anbefalinger",
+    "om oss",
+  ];
+  const drinksMenu = ["drinker", "vin" /* "uten alkohol" */];
   const sortedMenu: menu[] = [];
 
   pages.forEach((page) => {

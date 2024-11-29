@@ -42,7 +42,7 @@ export default async function Post({ params }: Props) {
       </div>
       <div className="max-w-4xl mx-auto px-2 my-14">
         <h1 className="text-5xl">{post.heading}</h1>
-        <div className="mt-4">
+        <div className="mt-4 article">
           <PortableText value={post.content} />
         </div>
       </div>
