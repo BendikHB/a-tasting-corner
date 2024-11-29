@@ -15,13 +15,13 @@ const DrinkCard = ({ data, basePath }: IDrinkCard) => {
   let strengthString;
   switch (strength) {
     case "low":
-      strengthString = "Lavt";
+      strengthString = "Lav";
       break;
     case "medium":
-      strengthString = "Normalt";
+      strengthString = "Normal";
       break;
     case "high":
-      strengthString = "Høyt";
+      strengthString = "Høy";
       break;
     default:
       strengthString = "Uten alkohol";
@@ -94,7 +94,7 @@ const DrinkCard = ({ data, basePath }: IDrinkCard) => {
             </div>
             {strengthString && (
               <div>
-                <p className="font-medium">Alkohol innhold:</p>
+                <p className="font-medium">Alkohol:</p>
                 <p>{strengthString}</p>
               </div>
             )}
