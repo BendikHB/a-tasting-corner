@@ -61,7 +61,7 @@ export default async function RootLayout({
                   Elevate your palate
                 </div>
               </div>
-              <div className="flex flex-col justify-end text-white">
+              <div className="flex flex-col justify-end items-center text-white w-1/5">
                 <DropDownMenu />
               </div>
             </div>
