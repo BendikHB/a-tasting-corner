@@ -43,7 +43,7 @@ export default async function Drink({ params }: Props) {
           <div className="md:ml-auto w-32 pr-2 mt-3">
             <SwitchBtn />
           </div>
-          <h2 className="text-3xl mt-5 mb-4">Ingredients:</h2>
+          <h2 className="text-3xl mt-5 mb-4">Ingredienser:</h2>
           <div className="text-xl">
             <Ingredients
               data={{
@@ -54,13 +54,13 @@ export default async function Drink({ params }: Props) {
           </div>
         </div>
         <div className="md:w-2/3 px-6">
-          <h2 className="text-3xl pt-6">How to make it:</h2>
+          <h2 className="text-3xl pt-6">Hvordan den lages:</h2>
           <div className="mt-4">
             <PortableText value={drink.how} />
           </div>
           {drink.additional && (
             <>
-              <h2 className="text-3xl mt-16">More info:</h2>
+              <h2 className="text-3xl mt-16">Litt ekstra:</h2>
               <div className="mt-4 pb-6">
                 <PortableText value={drink.additional} />
               </div>
@@ -71,7 +71,7 @@ export default async function Drink({ params }: Props) {
       {drink.similar && (
         <section className="flex mb-16 mt-2 max-w-7xl mx-auto justify-end">
           <div className="w-2/3 px-6">
-            <h2 className="text-3xl mt-3">Similar options:</h2>
+            <h2 className="text-3xl mt-3">Lignende:</h2>
             {drink.similar && (
               <div className="flex gap-6 pt-6">
                 {drink.similar.map((d) => {

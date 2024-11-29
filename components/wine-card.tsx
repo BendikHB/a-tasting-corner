@@ -36,7 +36,7 @@ const WineCard = ({ data, basePath }: IDrinkCard) => {
   }
 
   return (
-    <Link href={newSlug} className="flex flex-col flex-grow">
+    <Link href={newSlug} className="flex flex-col flex-grow max-w-[300px]">
       <div className="h-[120px] w-full md:h-[200px] md:w-[300px] relative">
         <Image
           src={image}

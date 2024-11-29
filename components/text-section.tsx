@@ -30,7 +30,7 @@ const TextSection = ({ data }: IText) => {
 
   return (
     <section className={background + " w-full"}>
-      <div className="mx-auto max-w-6xl w-3/4 px-12 py-20">
+      <div className="mx-auto max-w-6xl md:w-3/4 px-8 md:px-12 py-10 md:py-20">
         <div className="text-3xl pb-4">
           {title && (
             <>

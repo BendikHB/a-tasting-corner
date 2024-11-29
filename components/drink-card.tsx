@@ -15,38 +15,57 @@ const DrinkCard = ({ data, basePath }: IDrinkCard) => {
   let strengthString;
   switch (strength) {
     case "low":
-      strengthString = "Low in alcohol";
+      strengthString = "Lavt";
       break;
     case "medium":
-      strengthString = "Normal";
+      strengthString = "Normalt";
       break;
     case "high":
-      strengthString = "High in alcohol";
+      strengthString = "Høyt";
       break;
     default:
-      strengthString = "Non alcoholic";
+      strengthString = "Uten alkohol";
+      break;
+  }
+
+  let tasteString;
+  switch (taste) {
+    case "Sweet":
+      tasteString = "Søt";
+      break;
+    case "Sour":
+      tasteString = "Sur";
+      break;
+    case "Bitter":
+      tasteString = "Bitter";
+      break;
+    case "Fruity":
+      tasteString = "Fruktig";
+      break;
+    case "Savory":
+      tasteString = "Savory";
       break;
   }
 
   let ingredientsString;
   switch (amount_ingredients) {
     case "2":
-      ingredientsString = "Simple with two ingredients";
+      ingredientsString = "Enkel med to ingredienser";
       break;
     case "3":
-      ingredientsString = "Simple with three ingredients";
+      ingredientsString = "Enkel med tre ingredienser";
       break;
     case "4":
-      ingredientsString = "Intermediate with four ingredients";
+      ingredientsString = "Grei med fire ingredienser";
       break;
     case "5":
-      ingredientsString = "Complex with five ingredients";
+      ingredientsString = "Kompleks med fire ingredienser";
       break;
     case "6":
-      ingredientsString = "Complex with six ingredients";
+      ingredientsString = "Kompleks med fem ingredienser";
       break;
     case "0":
-      ingredientsString = "Over six ingredients";
+      ingredientsString = "Flere enn seks ingredienser";
       break;
     default:
       ingredientsString = " ";
@@ -54,7 +73,7 @@ const DrinkCard = ({ data, basePath }: IDrinkCard) => {
   }
 
   return (
-    <Link href={newSlug} className="flex flex-col flex-grow">
+    <Link href={newSlug} className="flex flex-col flex-grow max-w-[300px]">
       <div className="h-[120px] w-full md:h-[200px] md:w-[300px] relative">
         <Image
           src={image}
@@ -64,18 +83,18 @@ const DrinkCard = ({ data, basePath }: IDrinkCard) => {
           style={{ objectFit: "cover" }}
         />
       </div>
-      <div className="shadow-md p-4 pt-3 flex-grow flex flex-col">
+      <div className="shadow-md p-3 md:p-4 pt-3 flex-grow flex flex-col">
         <h3 className="text-lg">{name}</h3>
         <p className="text-xs">{ingredientsString}</p>
         <div className="flex flex-col gap-1 md:flex-row justify-between md:items-end flex-grow">
           <div className="flex flex-wrap gap-3 text-xs pt-2 pb-1 md:pb-0">
             <div className="pb-1 md:pb-0">
-              <p className="font-medium">Taste:</p>
-              <p>{taste}</p>
+              <p className="font-medium">Smak:</p>
+              <p>{tasteString}</p>
             </div>
             {strengthString && (
               <div>
-                <p className="font-medium">Alcohol:</p>
+                <p className="font-medium">Alkohol innhold:</p>
                 <p>{strengthString}</p>
               </div>
             )}

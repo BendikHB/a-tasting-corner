@@ -20,8 +20,8 @@ const Form = ({ data }: IForm) => {
 
   return (
     <section className={background + " w-full"}>
-      <div className="mx-auto max-w-6xl w-3/4 px-12 py-20 flex">
-        <div className="w-1/2 pr-24">
+      <div className="mx-auto max-w-6xl md:w-3/4 px-8 md:px-12 py-10 md:py-20 flex flex-col md:flex-row">
+        <div className="md:w-1/2 md:pr-24">
           <div className="text-3xl pb-4">
             <h2>{title}</h2>
           </div>
@@ -29,7 +29,7 @@ const Form = ({ data }: IForm) => {
             <PortableText value={text} />
           </div>
         </div>
-        <div className="w-1/2 border-l border-l-black">
+        <div className="mt-3 md:w-1/2 border-l border-l-black">
           <FormComponent formDestination={formDestination} />
         </div>
       </div>
