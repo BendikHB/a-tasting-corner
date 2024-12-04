@@ -17,7 +17,7 @@ const ButtonList = ({ data }: IButtonList) => {
             <Link href={cta.link}>
               <button
                 type="button"
-                className="border rounded-sm py-2 px-5 text-xl min-w-60 min-h-20 duration-300 hover:bg-light"
+                className="border rounded-sm py-2 px-5 text-xl min-w-60 min-h-20 duration-300 hover:bg-black hover:text-white"
               >
                 {cta.title}
               </button>

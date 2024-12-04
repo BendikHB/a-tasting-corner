@@ -202,7 +202,7 @@ const SearchFilterNonAlc = () => {
       <div className="relative">
         <div>
           <button
-            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
+            className="border rounded-sm p-2 duration-300 hover:bg-black hover:text-white min-w-48"
             onClick={() => {
               dropDown(!dropTastes, "tastes");
               setDropTastes(!dropTastes);
@@ -245,7 +245,7 @@ const SearchFilterNonAlc = () => {
       <div className="relative">
         <div>
           <button
-            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
+            className="border rounded-sm p-2 duration-300 hover:bg-black hover:text-white min-w-48"
             onClick={() => {
               dropDown(!dropAmount, "amount");
               setDropAmount(!dropAmount);
@@ -331,7 +331,7 @@ const SearchFilterNonAlc = () => {
         </div>
         <button
           type="button"
-          className="border rounded-sm p-2 duration-300 hover:bg-light"
+          className="border rounded-sm p-2 duration-300 hover:bg-black"
           onClick={() => {
             search();
           }}

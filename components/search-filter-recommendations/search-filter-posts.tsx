@@ -203,7 +203,7 @@ const SearchFilterRecommendations = () => {
         </div>
         <button
           type="button"
-          className="border rounded-sm p-2 duration-300 hover:bg-light"
+          className="border rounded-sm p-2 duration-300 hover:bg-black hover:text-white"
           onClick={() => {
             search();
           }}

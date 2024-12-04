@@ -246,7 +246,7 @@ const SearchFilterWines = () => {
       <div className="relative">
         <div>
           <button
-            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
+            className="border rounded-sm p-2 duration-300 hover:bg-black hover:text-white min-w-48"
             onClick={() => {
               dropDown(!droptype, "type");
               setDropType(!droptype);
@@ -303,7 +303,7 @@ const SearchFilterWines = () => {
       <div className="relative">
         <div>
           <button
-            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
+            className="border rounded-sm p-2 duration-300 hover:bg-black hover:text-white min-w-48"
             onClick={() => {
               dropDown(!dropRegion, "region");
               setdropRegion(!dropRegion);
@@ -356,7 +356,7 @@ const SearchFilterWines = () => {
       <div className="relative">
         <div>
           <button
-            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
+            className="border rounded-sm p-2 duration-300 hover:bg-black hover:text-white min-w-48"
             onClick={() => {
               dropDown(!DropVintage, "vintage");
               setDropVintage(!DropVintage);
@@ -427,7 +427,7 @@ const SearchFilterWines = () => {
         </div>
         <button
           type="button"
-          className="border rounded-sm p-2 duration-300 hover:bg-light"
+          className="border rounded-sm p-2 duration-300 hover:bg-black"
           onClick={() => {
             search();
           }}

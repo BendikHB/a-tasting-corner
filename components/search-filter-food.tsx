@@ -289,7 +289,7 @@ const SearchFilterFood = () => {
       <div className="relative">
         <div>
           <button
-            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
+            className="border rounded-sm p-2 duration-300 hover:bg-black hover:text-white min-w-48"
             onClick={() => {
               dropDown(!dropBase, "food-type");
               setDropBase(!dropBase);
@@ -342,7 +342,7 @@ const SearchFilterFood = () => {
       <div className="relative">
         <div>
           <button
-            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
+            className="border rounded-sm p-2 duration-300 hover:bg-black hover:text-white min-w-48"
             onClick={() => {
               dropDown(!dropcharacteristics, "characteristics");
               setDropcharacteristics(!dropcharacteristics);
@@ -397,7 +397,7 @@ const SearchFilterFood = () => {
       <div className="relative">
         <div>
           <button
-            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
+            className="border rounded-sm p-2 duration-300 hover:bg-black hover:text-white min-w-48"
             onClick={() => {
               dropDown(!dropingredient, "ingredient");
               setDropingredient(!dropingredient);
@@ -449,7 +449,7 @@ const SearchFilterFood = () => {
       <div className="relative">
         <div>
           <button
-            className="border rounded-sm p-2 duration-300 hover:bg-light min-w-48"
+            className="border rounded-sm p-2 duration-300 hover:bg-black hover:text-white min-w-48"
             onClick={() => {
               dropDown(!dropcuisine, "cuisine");
               setDropcuisine(!dropcuisine);
@@ -510,7 +510,7 @@ const SearchFilterFood = () => {
         </div>
         <button
           type="button"
-          className="border rounded-sm p-2 duration-300 hover:bg-light"
+          className="border rounded-sm p-2 duration-300 hover:bg-black"
           onClick={() => {
             search();
           }}
