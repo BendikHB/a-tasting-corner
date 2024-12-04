@@ -72,7 +72,7 @@ const FilteredFood = ({ food }: IFood) => {
         filtered.map((d) => {
           return (
             <div key={d.name} className="basis-[48%] md:basis-auto flex">
-              <FoodCard data={d} basePath={"/food/"} />
+              <FoodCard data={d} basePath={"/mat/"} />
             </div>
           );
         })}

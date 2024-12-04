@@ -54,7 +54,7 @@ export default async function Food({ params }: Props) {
           {food.similar && (
             <div className="flex gap-6 pt-6">
               {food.similar.map((f) => {
-                return <FoodCard key={f._id} data={f} basePath="/food/" />;
+                return <FoodCard key={f._id} data={f} basePath="/mat/" />;
               })}
             </div>
           )}

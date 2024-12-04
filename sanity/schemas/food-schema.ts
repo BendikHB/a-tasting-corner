@@ -108,6 +108,7 @@ const food = {
           { title: "Tradisjonell", value: "Tradisjonell" },
           { title: "Fransk", value: "Fransk" },
           { title: "Italiensk", value: "Italiensk" },
+          { title: "Spansk", value: "Spansk" },
           { title: "Amerikansk", value: "Amerikansk" },
           { title: "Indian", value: "Indisk" },
           { title: "Japansk", value: "Japansk" },
