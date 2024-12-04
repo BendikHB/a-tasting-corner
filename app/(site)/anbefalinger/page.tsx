@@ -86,7 +86,7 @@ export default async function Page() {
         </div>
       </section>
 
-      <section className="mt-10 px-4">
+      <section className="flex flex-col items-center mx-auto pt-8 md:pt-16 px-5 md:px-10 max-w-screen-2xl">
         <Suspense>
           <SearchFilterRecommendations />
           <FilteredRecommendations drinks={drinks} food={food} wines={wines} />

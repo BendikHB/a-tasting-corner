@@ -85,7 +85,7 @@ export default async function Page() {
           <PortableText value={intro} />
         </div>
       </section>
-      <section className="flex flex-col items-center mx-auto pt-16 px-5 md:px-10">
+      <section className="flex flex-col items-center mx-auto pt-8 md:pt-16 px-5 md:px-10 max-w-screen-2xl">
         <Suspense>
           <SearchFilterFood />
           {food && <FilteredFood food={food} />}
