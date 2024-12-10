@@ -53,7 +53,7 @@ export default async function Drink({ params }: Props) {
             <SwitchBtn />
           </div>
           <h2 className="text-3xl mt-5 mb-4">Ingredienser:</h2>
-          <div className="text-xl">
+          <div className="text-xl no-disc">
             <Ingredients
               data={{
                 ingredientsCl: drink.ingredientsCl,

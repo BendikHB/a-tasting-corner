@@ -40,6 +40,9 @@
     list-style: disc;
     padding-left: 20px;
   }
+  .no-disc ul {
+    list-style: none !important;
+  }
 
   li {
     margin-bottom: 5px;
